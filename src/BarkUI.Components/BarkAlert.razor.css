@@ -1,0 +1,42 @@
+.bark-alert {
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-alert-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.bark-alert-content {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.bark-alert--info {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-left-color: #3b82f6;
+    color: #1e40af;
+}
+
+.bark-alert--success {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left-color: #10b981;
+    color: #065f46;
+}
+
+.bark-alert--warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left-color: #f59e0b;
+    color: #92400e;
+}
+
+.bark-alert--error {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left-color: #ef4444;
+    color: #991b1b;
+}

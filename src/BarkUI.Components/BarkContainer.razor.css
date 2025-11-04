@@ -1,0 +1,33 @@
+.bark-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.bark-container--sm {
+    max-width: 640px;
+}
+
+.bark-container--md {
+    max-width: 768px;
+}
+
+.bark-container--lg {
+    max-width: 1024px;
+}
+
+.bark-container--xl {
+    max-width: 1280px;
+}
+
+.bark-container--full {
+    max-width: 100%;
+}
+
+.bark-container--centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

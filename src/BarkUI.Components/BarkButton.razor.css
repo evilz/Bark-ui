@@ -1,0 +1,108 @@
+.bark-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border-radius: 6px;
+    font-family: inherit;
+}
+
+.bark-button--md {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+.bark-button--sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+.bark-button--lg {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.bark-button--solid.bark-button--primary {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.bark-button--solid.bark-button--primary:hover:not(.bark-button--disabled) {
+    background-color: #2563eb;
+}
+
+.bark-button--solid.bark-button--secondary {
+    background-color: #6b7280;
+    color: white;
+}
+
+.bark-button--solid.bark-button--secondary:hover:not(.bark-button--disabled) {
+    background-color: #4b5563;
+}
+
+.bark-button--solid.bark-button--success {
+    background-color: #10b981;
+    color: white;
+}
+
+.bark-button--solid.bark-button--success:hover:not(.bark-button--disabled) {
+    background-color: #059669;
+}
+
+.bark-button--solid.bark-button--danger {
+    background-color: #ef4444;
+    color: white;
+}
+
+.bark-button--solid.bark-button--danger:hover:not(.bark-button--disabled) {
+    background-color: #dc2626;
+}
+
+.bark-button--outline {
+    background-color: transparent;
+    border: 2px solid;
+}
+
+.bark-button--outline.bark-button--primary {
+    border-color: #3b82f6;
+    color: #3b82f6;
+}
+
+.bark-button--outline.bark-button--primary:hover:not(.bark-button--disabled) {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.bark-button--outline.bark-button--secondary {
+    border-color: #6b7280;
+    color: #6b7280;
+}
+
+.bark-button--outline.bark-button--secondary:hover:not(.bark-button--disabled) {
+    background-color: #6b7280;
+    color: white;
+}
+
+.bark-button--ghost {
+    background-color: transparent;
+    border: none;
+}
+
+.bark-button--ghost.bark-button--primary {
+    color: #3b82f6;
+}
+
+.bark-button--ghost.bark-button--primary:hover:not(.bark-button--disabled) {
+    background-color: rgba(59, 130, 246, 0.1);
+}
+
+.bark-button--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

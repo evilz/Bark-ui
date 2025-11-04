@@ -1,0 +1,37 @@
+.bark-card {
+    border-radius: 8px;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+.bark-card--elevated {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.bark-card--elevated:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.bark-card--outlined {
+    border: 1px solid #e5e7eb;
+}
+
+.bark-card--flat {
+    background-color: #f9fafb;
+}
+
+.bark-card--padding-sm {
+    padding: 0.75rem;
+}
+
+.bark-card--padding-md {
+    padding: 1.25rem;
+}
+
+.bark-card--padding-lg {
+    padding: 1.75rem;
+}
+
+.bark-card--padding-none {
+    padding: 0;
+}

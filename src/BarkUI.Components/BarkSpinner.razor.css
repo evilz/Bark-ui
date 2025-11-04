@@ -1,0 +1,49 @@
+.bark-spinner {
+    display: inline-block;
+}
+
+.bark-spinner-circle {
+    border-radius: 50%;
+    border-style: solid;
+    border-top-color: transparent;
+    animation: bark-spin 0.8s linear infinite;
+}
+
+.bark-spinner--sm .bark-spinner-circle {
+    width: 1rem;
+    height: 1rem;
+    border-width: 2px;
+}
+
+.bark-spinner--md .bark-spinner-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 3px;
+}
+
+.bark-spinner--lg .bark-spinner-circle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-width: 4px;
+}
+
+.bark-spinner--primary .bark-spinner-circle {
+    border-color: #3b82f6;
+    border-top-color: transparent;
+}
+
+.bark-spinner--secondary .bark-spinner-circle {
+    border-color: #6b7280;
+    border-top-color: transparent;
+}
+
+.bark-spinner--success .bark-spinner-circle {
+    border-color: #10b981;
+    border-top-color: transparent;
+}
+
+@keyframes bark-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

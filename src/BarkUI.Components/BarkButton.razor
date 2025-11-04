@@ -1,0 +1,51 @@
+@namespace BarkUI.Components
+
+<button class="@GetButtonClasses()" type="@Type" disabled="@Disabled" @onclick="OnClick" @attributes="AdditionalAttributes">
+    @ChildContent
+</button>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "solid";
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string ColorScheme { get; set; } = "primary";
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string Type { get; set; } = "button";
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetButtonClasses()
+    {
+        var classes = new List<string> { "bark-button" };
+        classes.Add($"bark-button--{Variant}");
+        classes.Add($"bark-button--{Size}");
+        classes.Add($"bark-button--{ColorScheme}");
+        
+        if (Disabled)
+        {
+            classes.Add("bark-button--disabled");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}
