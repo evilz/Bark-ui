@@ -232,6 +232,277 @@
                 </BarkCard>
             </section>
 
+            <!-- Accordion Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Accordion</h2>
+                <BarkAccordion>
+                    <BarkAccordionItem Title="What is Bark UI?" @bind-IsExpanded="@accordion1">
+                        Bark UI is a comprehensive .NET Blazor component library inspired by park-ui, 
+                        providing beautifully designed, accessible components with Radix UI colors.
+                    </BarkAccordionItem>
+                    <BarkAccordionItem Title="How do I install it?" @bind-IsExpanded="@accordion2">
+                        You can add Bark UI to your project by referencing the BarkUI.Components project 
+                        and including the namespace in your _Imports.razor file.
+                    </BarkAccordionItem>
+                    <BarkAccordionItem Title="Is it customizable?" @bind-IsExpanded="@accordion3">
+                        Yes! All components support custom CSS classes and can be themed using the 
+                        built-in theming system with Radix UI colors.
+                    </BarkAccordionItem>
+                </BarkAccordion>
+            </section>
+
+            <!-- Collapsible Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Collapsible</h2>
+                <BarkCollapsible @bind-IsOpen="@collapsibleOpen">
+                    <TriggerContent>
+                        <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                            <span style="font-weight: 600;">📦 Click to toggle content</span>
+                            <span style="font-size: 0.75rem;">@(collapsibleOpen ? "▲" : "▼")</span>
+                        </span>
+                    </TriggerContent>
+                    <ChildContent>
+                        <p style="margin-bottom: 0.5rem;">
+                            This is collapsible content that can be shown or hidden.
+                        </p>
+                        <p>
+                            Collapsible components are great for FAQ sections, disclosure panels, 
+                            and any content that should be hidden by default.
+                        </p>
+                    </ChildContent>
+                </BarkCollapsible>
+            </section>
+
+            <!-- Avatar Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Avatars</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Sizes</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <BarkAvatar Size="sm" Name="John Doe" />
+                                <BarkAvatar Size="md" Name="Jane Smith" />
+                                <BarkAvatar Size="lg" Name="Bob Wilson" />
+                                <BarkAvatar Size="xl" Name="Alice Brown" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Shapes</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <BarkAvatar Shape="circle" Name="Circle Avatar" />
+                                <BarkAvatar Shape="square" Name="Square Avatar" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">With Images</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <BarkAvatar Src="https://i.pravatar.cc/150?img=1" Alt="User 1" />
+                                <BarkAvatar Src="https://i.pravatar.cc/150?img=2" Alt="User 2" />
+                                <BarkAvatar Src="https://i.pravatar.cc/150?img=3" Alt="User 3" />
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Carousel Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Carousel</h2>
+                <BarkCarousel @bind-CurrentIndex="@carouselIndex" ItemCount="3">
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">First Slide</h3>
+                            <p style="color: #6b7280;">This is the first carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Second Slide</h3>
+                            <p style="color: #6b7280;">This is the second carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Third Slide</h3>
+                            <p style="color: #6b7280;">This is the third carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                </BarkCarousel>
+            </section>
+
+            <!-- Icon Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Icons</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Sizes</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center;">
+                                <BarkIcon Size="xs" AriaLabel="Extra small icon">🌟</BarkIcon>
+                                <BarkIcon Size="sm" AriaLabel="Small icon">🌟</BarkIcon>
+                                <BarkIcon Size="md" AriaLabel="Medium icon">🌟</BarkIcon>
+                                <BarkIcon Size="lg" AriaLabel="Large icon">🌟</BarkIcon>
+                                <BarkIcon Size="xl" AriaLabel="Extra large icon">🌟</BarkIcon>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Various Icons</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center; font-size: 1.5rem;">
+                                <BarkIcon AriaLabel="Home">🏠</BarkIcon>
+                                <BarkIcon AriaLabel="Settings">⚙️</BarkIcon>
+                                <BarkIcon AriaLabel="User">👤</BarkIcon>
+                                <BarkIcon AriaLabel="Search">🔍</BarkIcon>
+                                <BarkIcon AriaLabel="Heart">❤️</BarkIcon>
+                                <BarkIcon AriaLabel="Star">⭐</BarkIcon>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Table Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Table</h2>
+                <BarkTable Striped="true" Hoverable="true">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Developer</td>
+                            <td><BarkBadge ColorScheme="success" Size="sm">Active</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>Designer</td>
+                            <td><BarkBadge ColorScheme="success" Size="sm">Active</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Bob Wilson</td>
+                            <td>bob@example.com</td>
+                            <td>Manager</td>
+                            <td><BarkBadge ColorScheme="warning" Size="sm">Away</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Alice Brown</td>
+                            <td>alice@example.com</td>
+                            <td>Engineer</td>
+                            <td><BarkBadge ColorScheme="danger" Size="sm">Offline</BarkBadge></td>
+                        </tr>
+                    </tbody>
+                </BarkTable>
+            </section>
+
+            <!-- Progress Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Progress</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Basic Progress</h3>
+                            <BarkProgress Value="45" />
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">With Label</h3>
+                            <BarkProgress Value="75" ShowLabel="true" />
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Color Schemes</h3>
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <BarkProgress Value="60" ColorScheme="primary" ShowLabel="true" />
+                                <BarkProgress Value="80" ColorScheme="success" ShowLabel="true" />
+                                <BarkProgress Value="40" ColorScheme="danger" ShowLabel="true" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Striped & Animated</h3>
+                            <BarkProgress Value="70" Striped="true" Animated="true" ShowLabel="true" />
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Skeleton Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Skeleton</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Text Skeletons</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <BarkSkeleton Variant="text" Width="100%" />
+                                <BarkSkeleton Variant="text" Width="80%" />
+                                <BarkSkeleton Variant="text" Width="60%" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Circle Skeleton</h3>
+                            <BarkSkeleton Variant="circle" />
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Rectangle Skeleton</h3>
+                            <BarkSkeleton Variant="rectangle" Height="8rem" />
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Toast Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Toast</h2>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    @if (showToast)
+                    {
+                        <BarkToast Variant="default" Title="Default Toast" OnClose="@(() => showToast = false)">
+                            This is a default toast notification.
+                        </BarkToast>
+                    }
+                    @if (showSuccessToast)
+                    {
+                        <BarkToast Variant="success" Title="Success!" OnClose="@(() => showSuccessToast = false)">
+                            Your action completed successfully.
+                        </BarkToast>
+                    }
+                    @if (showWarningToast)
+                    {
+                        <BarkToast Variant="warning" Title="Warning" OnClose="@(() => showWarningToast = false)">
+                            Please review this information.
+                        </BarkToast>
+                    }
+                    @if (showErrorToast)
+                    {
+                        <BarkToast Variant="error" Title="Error" OnClose="@(() => showErrorToast = false)">
+                            An error occurred. Please try again.
+                        </BarkToast>
+                    }
+                </div>
+                <BarkCard>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <BarkButton OnClick="@(() => showToast = true)">Show Default Toast</BarkButton>
+                        <BarkButton ColorScheme="success" OnClick="@(() => showSuccessToast = true)">Show Success Toast</BarkButton>
+                        <BarkButton ColorScheme="secondary" OnClick="@(() => showWarningToast = true)">Show Warning Toast</BarkButton>
+                        <BarkButton ColorScheme="danger" OnClick="@(() => showErrorToast = true)">Show Error Toast</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
         </div>
     </div>
 </BarkContainer>
@@ -239,6 +510,23 @@
 @code {
     private const int CopyFeedbackDurationMs = 2000;
     private string copiedText = string.Empty;
+    
+    // Accordion state
+    private bool accordion1 = false;
+    private bool accordion2 = false;
+    private bool accordion3 = false;
+    
+    // Collapsible state
+    private bool collapsibleOpen = false;
+    
+    // Carousel state
+    private int carouselIndex = 0;
+    
+    // Toast state
+    private bool showToast = false;
+    private bool showSuccessToast = false;
+    private bool showWarningToast = false;
+    private bool showErrorToast = false;
 
     /// <summary>
     /// Simulates copy-to-clipboard functionality for demo purposes.

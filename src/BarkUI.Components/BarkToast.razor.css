@@ -1,0 +1,80 @@
+.bark-toast {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radii-l3, 0.5rem);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: rgb(var(--colors-bg-default));
+    border: 1px solid var(--border-default);
+    min-width: 300px;
+    max-width: 500px;
+    animation: toast-slide-in 0.3s ease;
+}
+
+@keyframes toast-slide-in {
+    from {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.bark-toast--default {
+    border-left: 4px solid rgb(var(--colors-color-palette-default));
+}
+
+.bark-toast--success {
+    border-left: 4px solid rgb(48 164 108);
+    background-color: rgb(244 251 246);
+}
+
+.bark-toast--warning {
+    border-left: 4px solid rgb(245 158 11);
+    background-color: rgb(254 252 232);
+}
+
+.bark-toast--error {
+    border-left: 4px solid rgb(220 38 38);
+    background-color: rgb(254 242 242);
+}
+
+.bark-toast-content {
+    flex: 1;
+}
+
+.bark-toast-title {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: rgb(var(--colors-fg-default));
+    margin-bottom: 0.25rem;
+}
+
+.bark-toast-description {
+    font-size: 0.875rem;
+    color: rgb(var(--colors-fg-muted));
+    line-height: 1.4;
+}
+
+.bark-toast-close {
+    background: none;
+    border: none;
+    padding: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgb(var(--colors-fg-muted));
+    transition: color 0.15s ease;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.bark-toast-close:hover {
+    color: rgb(var(--colors-fg-default));
+}

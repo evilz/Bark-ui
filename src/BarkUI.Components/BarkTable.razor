@@ -1,0 +1,47 @@
+@namespace BarkUI.Components
+
+<div class="bark-table-container" @attributes="AdditionalAttributes">
+    <table class="@GetTableClasses()">
+        @ChildContent
+    </table>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "default";
+
+    [Parameter]
+    public bool Striped { get; set; } = false;
+
+    [Parameter]
+    public bool Hoverable { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetTableClasses()
+    {
+        var classes = new List<string> { "bark-table" };
+        classes.Add($"bark-table--{Variant}");
+
+        if (Striped)
+        {
+            classes.Add("bark-table--striped");
+        }
+
+        if (Hoverable)
+        {
+            classes.Add("bark-table--hoverable");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

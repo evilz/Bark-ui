@@ -1,0 +1,34 @@
+.bark-skeleton {
+    background-color: rgb(var(--colors-bg-muted));
+    display: block;
+}
+
+.bark-skeleton--text {
+    border-radius: var(--radii-l2, 0.25rem);
+    height: 1rem;
+}
+
+.bark-skeleton--circle {
+    border-radius: 9999px;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.bark-skeleton--rectangle {
+    border-radius: var(--radii-l3, 0.5rem);
+    width: 100%;
+    height: 4rem;
+}
+
+.bark-skeleton--animated {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

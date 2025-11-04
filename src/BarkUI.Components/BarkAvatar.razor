@@ -1,0 +1,68 @@
+@namespace BarkUI.Components
+
+<div class="@GetAvatarClasses()" @attributes="AdditionalAttributes">
+    @if (!string.IsNullOrEmpty(Src))
+    {
+        <img src="@Src" alt="@Alt" class="bark-avatar-image" />
+    }
+    else if (!string.IsNullOrEmpty(Fallback))
+    {
+        <span class="bark-avatar-fallback">@Fallback</span>
+    }
+    else
+    {
+        <span class="bark-avatar-fallback">@GetInitials()</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Src { get; set; }
+
+    [Parameter]
+    public string? Alt { get; set; }
+
+    [Parameter]
+    public string? Name { get; set; }
+
+    [Parameter]
+    public string? Fallback { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string Shape { get; set; } = "circle";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetInitials()
+    {
+        if (string.IsNullOrEmpty(Name))
+            return "?";
+
+        var parts = Name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length == 0)
+            return "?";
+        
+        if (parts.Length == 1)
+            return parts[0][0].ToString().ToUpper();
+        
+        return $"{parts[0][0]}{parts[^1][0]}".ToUpper();
+    }
+
+    private string GetAvatarClasses()
+    {
+        var classes = new List<string> { "bark-avatar" };
+        classes.Add($"bark-avatar--{Size}");
+        classes.Add($"bark-avatar--{Shape}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

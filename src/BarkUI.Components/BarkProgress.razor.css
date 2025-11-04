@@ -1,0 +1,81 @@
+.bark-progress {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.bark-progress-track {
+    flex: 1;
+    background-color: rgb(var(--colors-bg-muted));
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.bark-progress--sm .bark-progress-track {
+    height: 0.5rem;
+}
+
+.bark-progress--md .bark-progress-track {
+    height: 0.75rem;
+}
+
+.bark-progress--lg .bark-progress-track {
+    height: 1rem;
+}
+
+.bark-progress-range {
+    height: 100%;
+    transition: width 0.3s ease;
+    border-radius: 9999px;
+}
+
+.bark-progress--primary .bark-progress-range {
+    background-color: rgb(var(--colors-color-palette-default));
+}
+
+.bark-progress--secondary .bark-progress-range {
+    background-color: rgb(var(--colors-fg-muted));
+}
+
+.bark-progress--success .bark-progress-range {
+    background-color: rgb(48 164 108);
+}
+
+.bark-progress--danger .bark-progress-range {
+    background-color: rgb(220 38 38);
+}
+
+.bark-progress--striped .bark-progress-range {
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.15) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.15) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 1rem 1rem;
+}
+
+.bark-progress--animated .bark-progress-range {
+    animation: progress-animation 1s linear infinite;
+}
+
+@keyframes progress-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 1rem 0;
+    }
+}
+
+.bark-progress-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgb(var(--colors-fg-muted));
+    white-space: nowrap;
+}

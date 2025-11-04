@@ -1,0 +1,86 @@
+.bark-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radii-l3, 0.5rem);
+}
+
+.bark-carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.bark-carousel-container {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.bark-carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: rgb(var(--colors-fg-default));
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bark-carousel-control:hover:not(:disabled) {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bark-carousel-control:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.bark-carousel-control--prev {
+    left: 1rem;
+}
+
+.bark-carousel-control--next {
+    right: 1rem;
+}
+
+.bark-carousel-indicators {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 9999px;
+}
+
+.bark-carousel-indicator {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    padding: 0;
+}
+
+.bark-carousel-indicator:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.bark-carousel-indicator--active {
+    background-color: rgb(255, 255, 255);
+    width: 1.5rem;
+    border-radius: 0.25rem;
+}

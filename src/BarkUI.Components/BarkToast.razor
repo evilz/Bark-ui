@@ -1,0 +1,55 @@
+@namespace BarkUI.Components
+
+<div class="@GetToastClasses()" role="alert" @attributes="AdditionalAttributes">
+    <div class="bark-toast-content">
+        @if (!string.IsNullOrEmpty(Title))
+        {
+            <div class="bark-toast-title">@Title</div>
+        }
+        @if (ChildContent != null)
+        {
+            <div class="bark-toast-description">
+                @ChildContent
+            </div>
+        }
+    </div>
+    @if (Dismissible)
+    {
+        <button class="bark-toast-close" type="button" @onclick="OnClose" aria-label="Close">
+            ✕
+        </button>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "default";
+
+    [Parameter]
+    public bool Dismissible { get; set; } = true;
+
+    [Parameter]
+    public EventCallback OnClose { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetToastClasses()
+    {
+        var classes = new List<string> { "bark-toast" };
+        classes.Add($"bark-toast--{Variant}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

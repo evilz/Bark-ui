@@ -1,0 +1,62 @@
+@namespace BarkUI.Components
+
+<div class="@GetProgressClasses()" role="progressbar" 
+     aria-valuenow="@Value" 
+     aria-valuemin="0" 
+     aria-valuemax="100" 
+     @attributes="AdditionalAttributes">
+    <div class="bark-progress-track">
+        <div class="bark-progress-range" style="width: @Value%"></div>
+    </div>
+    @if (ShowLabel)
+    {
+        <span class="bark-progress-label">@Value%</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public int Value { get; set; } = 0;
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string ColorScheme { get; set; } = "primary";
+
+    [Parameter]
+    public bool ShowLabel { get; set; } = false;
+
+    [Parameter]
+    public bool Striped { get; set; } = false;
+
+    [Parameter]
+    public bool Animated { get; set; } = false;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetProgressClasses()
+    {
+        var classes = new List<string> { "bark-progress" };
+        classes.Add($"bark-progress--{Size}");
+        classes.Add($"bark-progress--{ColorScheme}");
+
+        if (Striped)
+        {
+            classes.Add("bark-progress--striped");
+        }
+
+        if (Animated)
+        {
+            classes.Add("bark-progress--animated");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

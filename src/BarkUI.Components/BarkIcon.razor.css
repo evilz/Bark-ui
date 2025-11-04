@@ -1,0 +1,38 @@
+.bark-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: currentColor;
+    line-height: 1;
+}
+
+.bark-icon--xs {
+    font-size: 0.75rem;
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.bark-icon--sm {
+    font-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.bark-icon--md {
+    font-size: 1.25rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.bark-icon--lg {
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.bark-icon--xl {
+    font-size: 2rem;
+    width: 2rem;
+    height: 2rem;
+}
