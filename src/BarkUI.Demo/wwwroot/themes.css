@@ -1,0 +1,169 @@
+/* 
+ * Bark UI Theme System with Radix UI Colors
+ * 
+ * This file contains predefined themes using Radix UI color scales.
+ * Apply themes by adding a data-theme attribute to the html element.
+ * Example: <html data-theme="blue">
+ * 
+ * All themes use Radix UI's scientifically designed color scales for optimal contrast and accessibility.
+ */
+
+/* Blue Theme - Radix UI Blue Scale */
+[data-theme="blue"] {
+    /* Background Colors - Radix UI Sky/Blue Scale */
+    --colors-bg-canvas: 249 250 251;      /* sky.1 */
+    --colors-bg-default: 240 249 255;     /* sky.2 */
+    --colors-bg-subtle: 224 242 254;      /* sky.3 */
+    --colors-bg-muted: 186 230 253;       /* sky.4 */
+    --colors-bg-emphasized: 125 211 252;  /* sky.5 */
+    --colors-bg-disabled: 186 230 253;    /* sky.4 */
+    
+    /* Foreground Colors - Radix UI Blue Scale */
+    --colors-fg-default: 12 74 110;       /* blue.12 */
+    --colors-fg-muted: 0 116 173;         /* blue.11 */
+    --colors-fg-subtle: 0 145 255;        /* blue.10 */
+    --colors-fg-disabled: 125 211 252;    /* blue.9 lighter */
+    
+    /* Border Colors - Radix UI Blue Scale */
+    --colors-border-default: 125 211 252; /* sky.6 */
+    --colors-border-subtle: 186 230 253;  /* sky.5 */
+    --colors-border-muted: 56 189 248;    /* blue.7 */
+    --colors-border-disabled: 186 230 253;/* sky.5 */
+    --colors-border-outline: 0 145 255;   /* blue.8 */
+    
+    /* Accent/Color Palette Colors - Radix UI Blue Scale */
+    --colors-color-palette-default: 0 144 255;    /* blue.9 */
+    --colors-color-palette-emphasized: 0 116 173; /* blue.11 */
+    --colors-color-palette-muted: 56 189 248;     /* blue.10 lighter */
+    --colors-color-palette-subtle: 125 211 252;   /* blue.9 lighter */
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 12 74 110;       /* blue.12 */
+}
+
+/* Green Theme - Radix UI Green Scale */
+[data-theme="green"] {
+    /* Background Colors - Radix UI Green Scale */
+    --colors-bg-canvas: 251 254 251;      /* green.1 */
+    --colors-bg-default: 244 251 246;     /* green.2 */
+    --colors-bg-subtle: 220 252 231;      /* green.3 */
+    --colors-bg-muted: 187 247 208;       /* green.4 */
+    --colors-bg-emphasized: 134 239 172;  /* green.5 */
+    --colors-bg-disabled: 187 247 208;    /* green.4 */
+    
+    /* Foreground Colors - Radix UI Green Scale */
+    --colors-fg-default: 25 63 35;        /* green.12 */
+    --colors-fg-muted: 48 107 67;         /* green.11 */
+    --colors-fg-subtle: 48 164 108;       /* green.10 */
+    --colors-fg-disabled: 134 239 172;    /* green.9 lighter */
+    
+    /* Border Colors - Radix UI Green Scale */
+    --colors-border-default: 134 239 172; /* green.6 */
+    --colors-border-subtle: 187 247 208;  /* green.5 */
+    --colors-border-muted: 74 222 128;    /* green.7 */
+    --colors-border-disabled: 187 247 208;/* green.5 */
+    --colors-border-outline: 48 164 108;  /* green.8 */
+    
+    /* Accent/Color Palette Colors - Radix UI Green Scale */
+    --colors-color-palette-default: 48 164 108;   /* green.9 */
+    --colors-color-palette-emphasized: 48 107 67; /* green.11 */
+    --colors-color-palette-muted: 74 222 128;     /* green.10 lighter */
+    --colors-color-palette-subtle: 134 239 172;   /* green.9 lighter */
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 25 63 35;        /* green.12 */
+}
+
+/* Purple Theme - Radix UI Purple/Violet Scale */
+[data-theme="purple"] {
+    /* Background Colors - Radix UI Violet Scale */
+    --colors-bg-canvas: 253 252 254;      /* violet.1 */
+    --colors-bg-default: 250 249 254;     /* violet.2 */
+    --colors-bg-subtle: 243 240 249;      /* violet.3 */
+    --colors-bg-muted: 233 226 244;       /* violet.4 */
+    --colors-bg-emphasized: 221 214 254;  /* violet.5 */
+    --colors-bg-disabled: 233 226 244;    /* violet.4 */
+    
+    /* Foreground Colors - Radix UI Violet Scale */
+    --colors-fg-default: 42 26 67;        /* violet.12 */
+    --colors-fg-muted: 91 66 121;         /* violet.11 */
+    --colors-fg-subtle: 124 88 159;       /* violet.10 */
+    --colors-fg-disabled: 196 181 253;    /* violet.9 lighter */
+    
+    /* Border Colors - Radix UI Violet Scale */
+    --colors-border-default: 221 214 254; /* violet.6 */
+    --colors-border-subtle: 233 226 244;  /* violet.5 */
+    --colors-border-muted: 196 181 253;   /* violet.7 */
+    --colors-border-disabled: 233 226 244;/* violet.5 */
+    --colors-border-outline: 124 88 159;  /* violet.8 */
+    
+    /* Accent/Color Palette Colors - Radix UI Violet Scale */
+    --colors-color-palette-default: 124 88 159;   /* violet.9 */
+    --colors-color-palette-emphasized: 91 66 121; /* violet.11 */
+    --colors-color-palette-muted: 168 145 205;    /* violet.10 lighter */
+    --colors-color-palette-subtle: 196 181 253;   /* violet.9 lighter */
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 42 26 67;        /* violet.12 */
+}
+
+/* Crimson Theme - Radix UI Crimson Scale */
+[data-theme="crimson"] {
+    /* Background Colors - Radix UI Crimson Scale */
+    --colors-bg-canvas: 254 252 252;      /* crimson.1 */
+    --colors-bg-default: 254 247 248;     /* crimson.2 */
+    --colors-bg-subtle: 254 235 238;      /* crimson.3 */
+    --colors-bg-muted: 255 217 227;       /* crimson.4 */
+    --colors-bg-emphasized: 254 194 215;  /* crimson.5 */
+    --colors-bg-disabled: 255 217 227;    /* crimson.4 */
+    
+    /* Foreground Colors - Radix UI Crimson Scale */
+    --colors-fg-default: 85 18 42;        /* crimson.12 */
+    --colors-fg-muted: 173 37 76;         /* crimson.11 */
+    --colors-fg-subtle: 233 61 105;       /* crimson.10 */
+    --colors-fg-disabled: 254 194 215;    /* crimson.9 lighter */
+    
+    /* Border Colors - Radix UI Crimson Scale */
+    --colors-border-default: 254 194 215; /* crimson.6 */
+    --colors-border-subtle: 255 217 227;  /* crimson.5 */
+    --colors-border-muted: 249 166 195;   /* crimson.7 */
+    --colors-border-disabled: 255 217 227;/* crimson.5 */
+    --colors-border-outline: 233 61 105;  /* crimson.8 */
+    
+    /* Accent/Color Palette Colors - Radix UI Crimson Scale */
+    --colors-color-palette-default: 233 61 105;   /* crimson.9 */
+    --colors-color-palette-emphasized: 173 37 76; /* crimson.11 */
+    --colors-color-palette-muted: 249 166 195;    /* crimson.10 lighter */
+    --colors-color-palette-subtle: 254 194 215;   /* crimson.9 lighter */
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 85 18 42;        /* crimson.12 */
+}
+
+/* Gray Theme - Radix UI Gray Scale (Neutral Gray) */
+[data-theme="gray"] {
+    /* Background Colors - Radix UI Gray Scale */
+    --colors-bg-canvas: 252 252 252;      /* gray.1 */
+    --colors-bg-default: 249 249 249;     /* gray.2 */
+    --colors-bg-subtle: 241 241 241;      /* gray.3 */
+    --colors-bg-muted: 228 228 228;       /* gray.4 */
+    --colors-bg-emphasized: 214 214 214;  /* gray.5 */
+    --colors-bg-disabled: 228 228 228;    /* gray.4 */
+    
+    /* Foreground Colors - Radix UI Gray Scale */
+    --colors-fg-default: 29 29 29;        /* gray.12 */
+    --colors-fg-muted: 99 99 99;          /* gray.11 */
+    --colors-fg-subtle: 132 132 132;      /* gray.10 */
+    --colors-fg-disabled: 161 161 161;    /* gray.9 */
+    
+    /* Border Colors - Radix UI Gray Scale */
+    --colors-border-default: 214 214 214; /* gray.6 */
+    --colors-border-subtle: 228 228 228;  /* gray.5 */
+    --colors-border-muted: 161 161 161;   /* gray.7 */
+    --colors-border-disabled: 228 228 228;/* gray.5 */
+    --colors-border-outline: 132 132 132; /* gray.8 */
+    
+    /* Accent/Color Palette Colors - Radix UI Gray Scale (Dark) */
+    --colors-color-palette-default: 29 29 29;     /* gray.12 */
+    --colors-color-palette-emphasized: 56 56 56;  /* gray.11 darker */
+    --colors-color-palette-muted: 99 99 99;       /* gray.10 */
+    --colors-color-palette-subtle: 132 132 132;   /* gray.9 */
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 29 29 29;        /* gray.12 */
+}

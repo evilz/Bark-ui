@@ -1,0 +1,38 @@
+@namespace BarkUI.Components
+
+<div class="@GetAlertClasses()" role="alert" @attributes="AdditionalAttributes">
+    @if (!string.IsNullOrEmpty(Title))
+    {
+        <div class="bark-alert-title">@Title</div>
+    }
+    <div class="bark-alert-content">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "info";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetAlertClasses()
+    {
+        var classes = new List<string> { "bark-alert" };
+        classes.Add($"bark-alert--{Variant}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

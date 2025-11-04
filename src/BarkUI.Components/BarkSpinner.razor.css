@@ -1,0 +1,53 @@
+.bark-spinner {
+    display: inline-block;
+}
+
+.bark-spinner-circle {
+    border-radius: 50%;
+    border-style: solid;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    animation: bark-spin 0.6s linear infinite;
+}
+
+.bark-spinner--sm .bark-spinner-circle {
+    width: 1rem;
+    height: 1rem;
+    border-width: 2px;
+}
+
+.bark-spinner--md .bark-spinner-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 2px;
+}
+
+.bark-spinner--lg .bark-spinner-circle {
+    width: 2rem;
+    height: 2rem;
+    border-width: 3px;
+}
+
+.bark-spinner--primary .bark-spinner-circle {
+    border-color: var(--color-palette-default);
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+
+.bark-spinner--secondary .bark-spinner-circle {
+    border-color: var(--fg-muted);
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+
+.bark-spinner--success .bark-spinner-circle {
+    border-color: var(--success);
+    border-top-color: transparent;
+    border-right-color: transparent;
+}
+
+@keyframes bark-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,39 @@
+.bark-card {
+    border-radius: var(--radii-l3, 0.5rem);
+    background-color: var(--bg-default);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bark-card--elevated {
+    box-shadow: var(--shadows-sm);
+    border: 1px solid var(--border-subtle);
+}
+
+.bark-card--elevated:hover {
+    box-shadow: var(--shadows-md);
+}
+
+.bark-card--outlined {
+    border: 1px solid var(--border-default);
+}
+
+.bark-card--flat {
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-subtle);
+}
+
+.bark-card--padding-sm {
+    padding: 1rem;
+}
+
+.bark-card--padding-md {
+    padding: 1.5rem;
+}
+
+.bark-card--padding-lg {
+    padding: 2rem;
+}
+
+.bark-card--padding-none {
+    padding: 0;
+}
