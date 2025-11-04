@@ -46,10 +46,15 @@
         if (parts.Length == 0)
             return "?";
         
-        if (parts.Length == 1)
-            return parts[0][0].ToString().ToUpper();
+        // Ensure each part has at least one character
+        var validParts = parts.Where(p => !string.IsNullOrEmpty(p)).ToArray();
+        if (validParts.Length == 0)
+            return "?";
         
-        return $"{parts[0][0]}{parts[^1][0]}".ToUpper();
+        if (validParts.Length == 1)
+            return validParts[0][0].ToString().ToUpper();
+        
+        return $"{validParts[0][0]}{validParts[^1][0]}".ToUpper();
     }
 
     private string GetAvatarClasses()

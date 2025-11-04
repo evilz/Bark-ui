@@ -1,6 +1,6 @@
 @namespace BarkUI.Components
 
-<div class="@GetSkeletonClasses()" @attributes="AdditionalAttributes">
+<div class="@GetSkeletonClasses()" style="@GetSkeletonStyles()" @attributes="AdditionalAttributes">
     @if (ChildContent != null)
     {
         @ChildContent
@@ -42,5 +42,18 @@
         }
 
         return string.Join(" ", classes);
+    }
+
+    private string GetSkeletonStyles()
+    {
+        var styles = new List<string>();
+        
+        if (Variant != "circle")
+        {
+            styles.Add($"width: {Width}");
+            styles.Add($"height: {Height}");
+        }
+
+        return string.Join("; ", styles);
     }
 }

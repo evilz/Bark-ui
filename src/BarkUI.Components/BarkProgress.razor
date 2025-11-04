@@ -1,22 +1,24 @@
 @namespace BarkUI.Components
 
 <div class="@GetProgressClasses()" role="progressbar" 
-     aria-valuenow="@Value" 
+     aria-valuenow="@ClampedValue" 
      aria-valuemin="0" 
      aria-valuemax="100" 
      @attributes="AdditionalAttributes">
     <div class="bark-progress-track">
-        <div class="bark-progress-range" style="width: @Value%"></div>
+        <div class="bark-progress-range" style="width: @ClampedValue%"></div>
     </div>
     @if (ShowLabel)
     {
-        <span class="bark-progress-label">@Value%</span>
+        <span class="bark-progress-label">@ClampedValue%</span>
     }
 </div>
 
 @code {
     [Parameter]
     public int Value { get; set; } = 0;
+
+    private int ClampedValue => Math.Clamp(Value, 0, 100);
 
     [Parameter]
     public string Size { get; set; } = "md";
