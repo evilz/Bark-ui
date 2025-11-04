@@ -20,45 +20,109 @@ Bark UI is a comprehensive .NET Blazor component library that provides customiza
 
 ## Components
 
-### Button
-Versatile button component with multiple variants, sizes, and color schemes.
+### Disclosure
 
-**Variants:** solid, outline, ghost
-**Sizes:** sm, md, lg
-**Colors:** primary, secondary, success, danger
+#### Accordion
+Expandable content sections that can be toggled open and closed.
 
-### Card
-Container component with different elevation styles.
+**Variants:** default, outline, ghost
+**Features:** Multiple item support, expandable sections
 
-**Variants:** elevated, outlined, flat
-**Padding:** sm, md, lg, none
+#### Collapsible
+Toggle content visibility with a customizable trigger.
 
-### Input
-Fully-featured input component with labels, validation, and helper text.
+**Features:** Custom trigger content, smooth animations
 
-**Sizes:** sm, md, lg
-**Features:** Labels, helper text, error states, disabled state
+### Display
 
-### Badge
+#### Avatar
+Display user profile images or initials.
+
+**Sizes:** sm, md, lg, xl
+**Shapes:** circle, square
+**Features:** Image support, automatic initials generation
+
+#### Badge
 Display status or category information.
 
 **Variants:** solid, outline, subtle
 **Colors:** primary, secondary, success, danger, warning, info
 **Sizes:** sm, md, lg
 
-### Alert
+#### Card
+Container component with different elevation styles.
+
+**Variants:** elevated, outlined, flat
+**Padding:** sm, md, lg, none
+
+#### Carousel
+Slideshow component for cycling through content.
+
+**Features:** Navigation controls, indicator dots, looping, customizable
+
+#### Icon
+Flexible icon wrapper component.
+
+**Sizes:** xs, sm, md, lg, xl
+**Features:** Accessible with aria-labels
+
+#### Table
+Data table with sorting and styling options.
+
+**Variants:** default, simple
+**Features:** Striped rows, hoverable rows, responsive
+
+### Feedback
+
+#### Alert
 Display important messages to users.
 
 **Variants:** info, success, warning, error
 **Features:** Title and content areas
 
-### Spinner
+#### Progress
+Visual progress indicator.
+
+**Sizes:** sm, md, lg
+**Colors:** primary, secondary, success, danger
+**Features:** Labels, striped, animated
+
+#### Skeleton
+Loading placeholder for content.
+
+**Variants:** text, circle, rectangle
+**Features:** Animated pulse effect
+
+#### Spinner
 Loading indicator component.
 
 **Sizes:** sm, md, lg
 **Colors:** primary, secondary, success
 
-### Container
+#### Toast
+Notification messages with dismissible option.
+
+**Variants:** default, success, warning, error
+**Features:** Dismissible, auto-animation
+
+### Forms
+
+#### Button
+Versatile button component with multiple variants, sizes, and color schemes.
+
+**Variants:** solid, outline, ghost
+**Sizes:** sm, md, lg
+**Colors:** primary, secondary, success, danger
+
+#### Input
+Fully-featured input component with labels, validation, and helper text.
+
+**Sizes:** sm, md, lg
+**Features:** Labels, helper text, error states, disabled state
+
+### Layout
+
+#### Container
 Responsive container with max-width constraints.
 
 **Max Width:** sm, md, lg, xl, full

@@ -233,6 +233,260 @@ Example:
 
 ---
 
+## BarkAccordion
+
+An expandable accordion component for organizing content sections.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Accordion items to display |
+| Variant | string | "default" | Accordion style: "default", "outline", or "ghost" |
+| Multiple | bool | false | Allow multiple items to be expanded simultaneously |
+
+### Usage
+
+```razor
+<BarkAccordion>
+    <BarkAccordionItem Title="Section 1">
+        Content for section 1
+    </BarkAccordionItem>
+    <BarkAccordionItem Title="Section 2">
+        Content for section 2
+    </BarkAccordionItem>
+</BarkAccordion>
+```
+
+---
+
+## BarkAccordionItem
+
+Individual accordion section within BarkAccordion.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content to display when expanded |
+| Title | string? | null | Title text for the accordion item |
+| IsExpanded | bool | false | Whether the item is expanded |
+| IsExpandedChanged | EventCallback<bool> | - | Event callback when expansion state changes |
+
+---
+
+## BarkCollapsible
+
+Toggle content visibility with a customizable trigger.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content to show/hide |
+| TriggerContent | RenderFragment? | null | Content for the trigger button |
+| IsOpen | bool | false | Whether the content is visible |
+| IsOpenChanged | EventCallback<bool> | - | Event callback when open state changes |
+
+### Usage
+
+```razor
+<BarkCollapsible @bind-IsOpen="isOpen">
+    <TriggerContent>
+        <span>Click to toggle</span>
+    </TriggerContent>
+    <ChildContent>
+        <p>Collapsible content here</p>
+    </ChildContent>
+</BarkCollapsible>
+```
+
+---
+
+## BarkAvatar
+
+Display user profile images or initials.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Src | string? | null | Image source URL |
+| Alt | string? | null | Alt text for image |
+| Name | string? | null | Name to generate initials from |
+| Fallback | string? | null | Custom fallback text (overrides auto-generated initials) |
+| Size | string | "md" | Avatar size: "sm", "md", "lg", or "xl" |
+| Shape | string | "circle" | Avatar shape: "circle" or "square" |
+
+### Usage
+
+```razor
+<BarkAvatar Name="John Doe" Size="md" Shape="circle" />
+<BarkAvatar Src="https://example.com/avatar.jpg" Alt="User avatar" />
+```
+
+---
+
+## BarkCarousel
+
+Slideshow component for cycling through content.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Carousel items to display |
+| CurrentIndex | int | 0 | Currently active slide index |
+| CurrentIndexChanged | EventCallback<int> | - | Event callback when slide changes |
+| ItemCount | int | 0 | Total number of items |
+| Loop | bool | true | Whether to loop back to start |
+| ShowControls | bool | true | Show navigation buttons |
+| ShowIndicators | bool | true | Show indicator dots |
+
+### Usage
+
+```razor
+<BarkCarousel @bind-CurrentIndex="index" ItemCount="3">
+    <BarkCarouselItem>
+        <div>Slide 1</div>
+    </BarkCarouselItem>
+    <BarkCarouselItem>
+        <div>Slide 2</div>
+    </BarkCarouselItem>
+    <BarkCarouselItem>
+        <div>Slide 3</div>
+    </BarkCarouselItem>
+</BarkCarousel>
+```
+
+---
+
+## BarkIcon
+
+Flexible icon wrapper component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Icon content (emoji, SVG, etc.) |
+| Size | string | "md" | Icon size: "xs", "sm", "md", "lg", or "xl" |
+| AriaLabel | string? | null | Accessible label for screen readers |
+
+### Usage
+
+```razor
+<BarkIcon Size="lg" AriaLabel="Home icon">🏠</BarkIcon>
+```
+
+---
+
+## BarkTable
+
+Data table with styling options.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Table content (thead, tbody, tfoot) |
+| Variant | string | "default" | Table style: "default" or "simple" |
+| Striped | bool | false | Alternate row colors |
+| Hoverable | bool | true | Highlight row on hover |
+
+### Usage
+
+```razor
+<BarkTable Striped="true" Hoverable="true">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+        </tr>
+    </tbody>
+</BarkTable>
+```
+
+---
+
+## BarkProgress
+
+Visual progress indicator.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Value | int | 0 | Progress value (0-100) |
+| Size | string | "md" | Progress bar size: "sm", "md", or "lg" |
+| ColorScheme | string | "primary" | Color scheme: "primary", "secondary", "success", or "danger" |
+| ShowLabel | bool | false | Display percentage label |
+| Striped | bool | false | Striped pattern |
+| Animated | bool | false | Animate stripes |
+
+### Usage
+
+```razor
+<BarkProgress Value="75" ShowLabel="true" ColorScheme="success" />
+<BarkProgress Value="50" Striped="true" Animated="true" />
+```
+
+---
+
+## BarkSkeleton
+
+Loading placeholder for content.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Optional custom content |
+| Variant | string | "text" | Skeleton type: "text", "circle", or "rectangle" |
+| Width | string | "100%" | Width of the skeleton |
+| Height | string | "1rem" | Height of the skeleton |
+| Animated | bool | true | Pulse animation |
+
+### Usage
+
+```razor
+<BarkSkeleton Variant="text" Width="100%" />
+<BarkSkeleton Variant="circle" />
+<BarkSkeleton Variant="rectangle" Height="8rem" />
+```
+
+---
+
+## BarkToast
+
+Notification messages with dismissible option.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Toast message content |
+| Title | string? | null | Toast title |
+| Variant | string | "default" | Toast type: "default", "success", "warning", or "error" |
+| Dismissible | bool | true | Show close button |
+| OnClose | EventCallback | - | Event callback when toast is closed |
+
+### Usage
+
+```razor
+<BarkToast Variant="success" Title="Success!" OnClose="HandleClose">
+    Your changes have been saved.
+</BarkToast>
+```
+
+---
+
 ## Browser Support
 
 Bark UI components work in all modern browsers:
