@@ -1,0 +1,112 @@
+@namespace BarkUI.Components
+
+<div class="@GetCarouselClasses()" @attributes="AdditionalAttributes">
+    <div class="bark-carousel-viewport">
+        <div class="bark-carousel-container" style="transform: translateX(-@(CurrentIndex * 100)%);">
+            @ChildContent
+        </div>
+    </div>
+    
+    @if (ShowControls)
+    {
+        <button class="bark-carousel-control bark-carousel-control--prev" 
+                type="button"
+                @onclick="Previous"
+                disabled="@(CurrentIndex == 0 && !Loop)"
+                aria-label="Previous slide">
+            ‹
+        </button>
+        <button class="bark-carousel-control bark-carousel-control--next" 
+                type="button"
+                @onclick="Next"
+                disabled="@(CurrentIndex == ItemCount - 1 && !Loop)"
+                aria-label="Next slide">
+            ›
+        </button>
+    }
+
+    @if (ShowIndicators)
+    {
+        <div class="bark-carousel-indicators">
+            @for (int i = 0; i < ItemCount; i++)
+            {
+                var index = i;
+                <button class="bark-carousel-indicator @(CurrentIndex == index ? "bark-carousel-indicator--active" : "")"
+                        type="button"
+                        @onclick="@(() => GoToSlide(index))"
+                        aria-label="Go to slide @(index + 1)">
+                </button>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public int CurrentIndex { get; set; } = 0;
+
+    [Parameter]
+    public EventCallback<int> CurrentIndexChanged { get; set; }
+
+    [Parameter]
+    public int ItemCount { get; set; } = 0;
+
+    [Parameter]
+    public bool Loop { get; set; } = true;
+
+    [Parameter]
+    public bool ShowControls { get; set; } = true;
+
+    [Parameter]
+    public bool ShowIndicators { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private async Task Next()
+    {
+        if (CurrentIndex < ItemCount - 1)
+        {
+            CurrentIndex++;
+        }
+        else if (Loop)
+        {
+            CurrentIndex = 0;
+        }
+        await CurrentIndexChanged.InvokeAsync(CurrentIndex);
+    }
+
+    private async Task Previous()
+    {
+        if (CurrentIndex > 0)
+        {
+            CurrentIndex--;
+        }
+        else if (Loop)
+        {
+            CurrentIndex = ItemCount - 1;
+        }
+        await CurrentIndexChanged.InvokeAsync(CurrentIndex);
+    }
+
+    private async Task GoToSlide(int index)
+    {
+        CurrentIndex = index;
+        await CurrentIndexChanged.InvokeAsync(CurrentIndex);
+    }
+
+    private string GetCarouselClasses()
+    {
+        var classes = new List<string> { "bark-carousel" };
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

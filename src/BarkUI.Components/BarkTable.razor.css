@@ -1,0 +1,60 @@
+.bark-table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: var(--radii-l3, 0.5rem);
+    border: 1px solid var(--border-default);
+}
+
+.bark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.bark-table--default {
+    background-color: rgb(var(--colors-bg-default));
+}
+
+.bark-table--simple {
+    border: none;
+}
+
+.bark-table :global(thead) {
+    background-color: rgb(var(--colors-bg-subtle));
+    border-bottom: 2px solid var(--border-default);
+}
+
+.bark-table :global(th) {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: rgb(var(--colors-fg-default));
+    white-space: nowrap;
+}
+
+.bark-table :global(td) {
+    padding: 0.75rem 1rem;
+    color: rgb(var(--colors-fg-default));
+    border-top: 1px solid var(--border-subtle);
+}
+
+.bark-table :global(tbody tr) {
+    transition: background-color 0.15s ease;
+}
+
+.bark-table--hoverable :global(tbody tr:hover) {
+    background-color: rgba(var(--colors-bg-subtle), 0.5);
+}
+
+.bark-table--striped :global(tbody tr:nth-child(even)) {
+    background-color: rgba(var(--colors-bg-subtle), 0.3);
+}
+
+.bark-table :global(tfoot) {
+    border-top: 2px solid var(--border-default);
+    font-weight: 600;
+}
+
+.bark-table :global(tfoot td) {
+    padding: 0.75rem 1rem;
+}

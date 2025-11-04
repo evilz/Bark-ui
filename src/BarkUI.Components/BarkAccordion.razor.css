@@ -1,0 +1,16 @@
+.bark-accordion {
+    border-radius: var(--radii-l3, 0.5rem);
+    width: 100%;
+}
+
+.bark-accordion--default {
+    border: 1px solid var(--border-default);
+}
+
+.bark-accordion--outline {
+    border: 2px solid var(--border-default);
+}
+
+.bark-accordion--ghost {
+    border: none;
+}

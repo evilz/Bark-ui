@@ -1,0 +1,59 @@
+@namespace BarkUI.Components
+
+<div class="@GetSkeletonClasses()" style="@GetSkeletonStyles()" @attributes="AdditionalAttributes">
+    @if (ChildContent != null)
+    {
+        @ChildContent
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "text";
+
+    [Parameter]
+    public string Width { get; set; } = "100%";
+
+    [Parameter]
+    public string Height { get; set; } = "1rem";
+
+    [Parameter]
+    public bool Animated { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetSkeletonClasses()
+    {
+        var classes = new List<string> { "bark-skeleton" };
+        classes.Add($"bark-skeleton--{Variant}");
+
+        if (Animated)
+        {
+            classes.Add("bark-skeleton--animated");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private string GetSkeletonStyles()
+    {
+        var styles = new List<string>();
+        
+        if (Variant != "circle")
+        {
+            styles.Add($"width: {Width}");
+            styles.Add($"height: {Height}");
+        }
+
+        return string.Join("; ", styles);
+    }
+}

@@ -1,0 +1,55 @@
+@namespace BarkUI.Components
+
+<div class="@GetCollapsibleClasses()" @attributes="AdditionalAttributes">
+    <button class="bark-collapsible-trigger" 
+            type="button" 
+            @onclick="ToggleOpen"
+            aria-expanded="@IsOpen">
+        @TriggerContent
+    </button>
+    <div class="bark-collapsible-content @(IsOpen ? "bark-collapsible-content--open" : "")">
+        <div class="bark-collapsible-content-inner">
+            @ChildContent
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? TriggerContent { get; set; }
+
+    [Parameter]
+    public bool IsOpen { get; set; } = false;
+
+    [Parameter]
+    public EventCallback<bool> IsOpenChanged { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private async Task ToggleOpen()
+    {
+        IsOpen = !IsOpen;
+        await IsOpenChanged.InvokeAsync(IsOpen);
+    }
+
+    private string GetCollapsibleClasses()
+    {
+        var classes = new List<string> { "bark-collapsible" };
+
+        if (IsOpen)
+        {
+            classes.Add("bark-collapsible--open");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}
