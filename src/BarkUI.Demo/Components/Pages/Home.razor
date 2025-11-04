@@ -237,14 +237,17 @@
 </BarkContainer>
 
 @code {
+    private const int CopyFeedbackDurationMs = 2000;
     private string copiedText = string.Empty;
 
+    /// <summary>
+    /// Simulates copy-to-clipboard functionality for demo purposes.
+    /// In a real application, you would use JavaScript interop to actually copy to clipboard.
+    /// </summary>
     private async Task CopyToClipboard(string text)
     {
         copiedText = text;
-        // In a real application, you would use JavaScript interop to copy to clipboard
-        // For demo purposes, we just show the text was "copied"
-        await Task.Delay(2000);
+        await Task.Delay(CopyFeedbackDurationMs);
         copiedText = string.Empty;
         StateHasChanged();
     }
