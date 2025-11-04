@@ -115,10 +115,123 @@ Versatile button component with multiple variants, sizes, and color schemes.
 **Colors:** primary, secondary, success, danger
 
 #### Input
-Fully-featured input component with labels, validation, and helper text.
+Text input component with labels, validation, and helper text.
 
 **Sizes:** sm, md, lg
 **Features:** Labels, helper text, error states, disabled state
+
+#### Checkbox
+Checkbox input with support for different sizes.
+
+**Sizes:** sm, md, lg
+**Features:** Custom label, disabled state
+
+#### Switch
+Toggle switch with customizable label positions.
+
+**Sizes:** sm, md, lg
+**Features:** Label positioning, checked state
+
+#### Textarea
+Multi-line text input with label and validation.
+
+**Sizes:** sm, md, lg
+**Features:** Adjustable rows, labels, helper text, error states
+
+#### Select
+Dropdown select with custom styling.
+
+**Sizes:** sm, md, lg
+**Features:** Labels, placeholder, helper text, error states
+
+#### Slider
+Range slider with optional value display.
+
+**Sizes:** sm, md, lg
+**Features:** Min/max values, step control, value display
+
+#### Radio Group
+Radio button groups with vertical/horizontal layouts.
+
+**Sizes:** sm, md, lg
+**Features:** Single selection, orientation control
+
+#### Number Input
+Number input with increment/decrement buttons.
+
+**Sizes:** sm, md, lg
+**Features:** Min/max bounds, step control, validation
+
+#### Pin Input
+PIN/OTP input with multiple digit fields.
+
+**Sizes:** sm, md, lg
+**Features:** Custom length, masking support
+
+#### File Upload
+File upload with drag-and-drop support.
+
+**Features:** Multiple files, file type filtering, drag-and-drop
+
+#### Rating Group
+Star rating component for user feedback.
+
+**Sizes:** sm, md, lg
+**Features:** Custom max rating, custom icons
+
+#### Segment Group
+Segmented control for view switching.
+
+**Sizes:** sm, md, lg
+**Features:** Multiple segments, active state
+
+#### Toggle Group
+Toggle button group for option selection.
+
+**Sizes:** sm, md, lg
+**Features:** Multiple toggles, variants
+
+#### Tags Input
+Tags input with add/remove functionality.
+
+**Sizes:** sm, md, lg
+**Features:** Add tags on Enter, remove tags
+
+#### Radio Card Group
+Card-based radio selection for rich options.
+
+**Features:** Grid layout, custom columns, checkmark indicator
+
+#### Field
+Form field wrapper with label and error handling.
+
+**Features:** Labels, helper text, error messages
+
+#### Fieldset
+Fieldset for grouping related form fields.
+
+**Features:** Legend, helper text, disabled state
+
+#### Editable
+Inline editable text component.
+
+**Features:** Click to edit, save/cancel actions
+
+#### Color Picker
+Color picker with hex input.
+
+**Features:** Visual picker, text input, preview
+
+#### Date Picker
+Date input with native date picker.
+
+**Sizes:** sm, md, lg
+**Features:** Labels, helper text, error states
+
+#### Combobox
+Searchable dropdown with filtering.
+
+**Features:** Type to filter, custom options
 
 ### Layout
 

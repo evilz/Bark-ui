@@ -505,3 +505,541 @@ All components follow accessibility best practices:
 - Keyboard navigation support
 - Screen reader friendly
 - Focus management
+
+## BarkCheckbox
+
+A checkbox input component with customizable sizes.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Label content for the checkbox |
+| Checked | bool | false | Whether the checkbox is checked |
+| CheckedChanged | EventCallback<bool> | - | Event callback when checked state changes |
+| Disabled | bool | false | Whether the checkbox is disabled |
+| Size | string | "md" | Checkbox size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkCheckbox @bind-Checked="isChecked">Accept terms and conditions</BarkCheckbox>
+```
+
+---
+
+## BarkSwitch
+
+A toggle switch component with customizable label positions.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text for the switch |
+| Checked | bool | false | Whether the switch is on |
+| CheckedChanged | EventCallback<bool> | - | Event callback when checked state changes |
+| Disabled | bool | false | Whether the switch is disabled |
+| Size | string | "md" | Switch size: "sm", "md", or "lg" |
+| LabelPosition | string | "start" | Label position: "start" or "end" |
+
+### Usage
+
+```razor
+<BarkSwitch @bind-Checked="isDarkMode" Label="Dark Mode" />
+```
+
+---
+
+## BarkTextarea
+
+A multi-line text input component with label and validation support.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | auto-generated | HTML id attribute |
+| Label | string? | null | Label text displayed above the textarea |
+| Placeholder | string? | null | Placeholder text |
+| Value | string? | null | Current value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Rows | int | 4 | Number of visible text rows |
+| Size | string | "md" | Textarea size: "sm", "md", or "lg" |
+| Disabled | bool | false | Whether the textarea is disabled |
+| HasError | bool | false | Whether to display error state |
+| HelperText | string? | null | Helper or error text displayed below textarea |
+
+### Usage
+
+```razor
+<BarkTextarea Label="Comments" Placeholder="Enter your comments..." @bind-Value="comments" />
+```
+
+---
+
+## BarkSelect
+
+A dropdown select component with custom styling.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | auto-generated | HTML id attribute |
+| Label | string? | null | Label text displayed above the select |
+| Placeholder | string? | null | Placeholder option text |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Size | string | "md" | Select size: "sm", "md", or "lg" |
+| Disabled | bool | false | Whether the select is disabled |
+| HasError | bool | false | Whether to display error state |
+| HelperText | string? | null | Helper or error text displayed below select |
+| ChildContent | RenderFragment? | null | Option elements |
+
+### Usage
+
+```razor
+<BarkSelect Label="Country" @bind-Value="selectedCountry">
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+</BarkSelect>
+```
+
+---
+
+## BarkSlider
+
+A range slider component with optional value display.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the slider |
+| Value | int | 0 | Current value |
+| ValueChanged | EventCallback<int> | - | Event callback when value changes |
+| Min | int | 0 | Minimum value |
+| Max | int | 100 | Maximum value |
+| Step | int | 1 | Step increment |
+| ShowValue | bool | false | Display current value next to slider |
+| Disabled | bool | false | Whether the slider is disabled |
+| Size | string | "md" | Slider size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkSlider Label="Volume" @bind-Value="volume" ShowValue="true" />
+```
+
+---
+
+## BarkRadioGroup & BarkRadio
+
+Radio button group components for single selection from multiple options.
+
+### BarkRadioGroup Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text for the radio group |
+| ChildContent | RenderFragment? | null | Radio button items |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Size | string | "md" | Radio size: "sm", "md", or "lg" |
+| Orientation | string | "vertical" | Layout: "vertical" or "horizontal" |
+
+### BarkRadio Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Label content for the radio button |
+| Value | string? | null | Value of this radio option |
+| Name | string? | null | HTML name attribute |
+| Disabled | bool | false | Whether the radio is disabled |
+| Size | string | "md" | Radio size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<CascadingValue Value="radioGroup">
+    <BarkRadioGroup Label="Select size" @bind-Value="selectedSize">
+        <BarkRadio Value="small">Small</BarkRadio>
+        <BarkRadio Value="medium">Medium</BarkRadio>
+        <BarkRadio Value="large">Large</BarkRadio>
+    </BarkRadioGroup>
+</CascadingValue>
+```
+
+---
+
+## BarkNumberInput
+
+A number input with increment and decrement buttons.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | auto-generated | HTML id attribute |
+| Label | string? | null | Label text displayed above the input |
+| Value | int | 0 | Current value |
+| ValueChanged | EventCallback<int> | - | Event callback when value changes |
+| Min | int | int.MinValue | Minimum value |
+| Max | int | int.MaxValue | Maximum value |
+| Step | int | 1 | Step increment |
+| Size | string | "md" | Input size: "sm", "md", or "lg" |
+| Disabled | bool | false | Whether the input is disabled |
+| HasError | bool | false | Whether to display error state |
+| HelperText | string? | null | Helper or error text displayed below input |
+
+### Usage
+
+```razor
+<BarkNumberInput Label="Quantity" @bind-Value="quantity" Min="1" Max="100" />
+```
+
+---
+
+## BarkPinInput
+
+A PIN or OTP input component with multiple digit fields.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the pin input |
+| Value | string | "" | Current pin value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Length | int | 4 | Number of pin digits |
+| Mask | bool | false | Whether to mask the input as password |
+| Disabled | bool | false | Whether the input is disabled |
+| Size | string | "md" | Input size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkPinInput Label="Enter PIN" @bind-Value="pin" Length="4" />
+```
+
+---
+
+## BarkFileUpload
+
+A file upload component with drag-and-drop support.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | auto-generated | HTML id attribute |
+| Label | string? | null | Label text displayed above the upload area |
+| PlaceholderText | string? | null | Custom placeholder text |
+| HelperText | string? | null | Helper text displayed below upload area |
+| Multiple | bool | false | Allow multiple file uploads |
+| Accept | string? | null | Accepted file types |
+| Disabled | bool | false | Whether the upload is disabled |
+| FilesChanged | EventCallback<string[]> | - | Event callback when files are selected |
+
+### Usage
+
+```razor
+<BarkFileUpload Label="Upload documents" Multiple="true" Accept=".pdf,.doc,.docx" />
+```
+
+---
+
+## BarkRatingGroup
+
+A star rating component for user feedback.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the rating |
+| Value | int | 0 | Current rating value |
+| ValueChanged | EventCallback<int> | - | Event callback when value changes |
+| Max | int | 5 | Maximum rating value |
+| Icon | string | "⭐" | Icon to use for rating (emoji or character) |
+| Disabled | bool | false | Whether the rating is disabled |
+| Size | string | "md" | Rating size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkRatingGroup Label="Rate this product" @bind-Value="rating" />
+```
+
+---
+
+## BarkSegmentGroup & BarkSegment
+
+Segmented control for switching between views or options.
+
+### BarkSegmentGroup Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text for the segment group |
+| ChildContent | RenderFragment? | null | Segment items |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Size | string | "md" | Segment size: "sm", "md", or "lg" |
+
+### BarkSegment Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content for the segment |
+| Value | string? | null | Value of this segment option |
+
+### Usage
+
+```razor
+<CascadingValue Value="segmentGroup">
+    <BarkSegmentGroup Label="View mode" @bind-Value="viewMode">
+        <BarkSegment Value="list">List</BarkSegment>
+        <BarkSegment Value="grid">Grid</BarkSegment>
+    </BarkSegmentGroup>
+</CascadingValue>
+```
+
+---
+
+## BarkToggleGroup & BarkToggle
+
+Toggle button group for selecting from multiple options.
+
+### BarkToggleGroup Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text for the toggle group |
+| ChildContent | RenderFragment? | null | Toggle items |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Size | string | "md" | Toggle size: "sm", "md", or "lg" |
+| Variant | string | "default" | Toggle style variant |
+
+### BarkToggle Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content for the toggle |
+| Value | string? | null | Value of this toggle option |
+
+### Usage
+
+```razor
+<CascadingValue Value="toggleGroup">
+    <BarkToggleGroup Label="Text alignment" @bind-Value="alignment">
+        <BarkToggle Value="left">Left</BarkToggle>
+        <BarkToggle Value="center">Center</BarkToggle>
+        <BarkToggle Value="right">Right</BarkToggle>
+    </BarkToggleGroup>
+</CascadingValue>
+```
+
+---
+
+## BarkTagsInput
+
+A tags input component for adding and removing tags.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the input |
+| Placeholder | string? | null | Placeholder text |
+| Tags | List<string> | new() | List of current tags |
+| TagsChanged | EventCallback<List<string>> | - | Event callback when tags change |
+| Disabled | bool | false | Whether the input is disabled |
+| HelperText | string? | null | Helper text displayed below input |
+| Size | string | "md" | Input size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkTagsInput Label="Tags" @bind-Tags="tags" Placeholder="Type and press Enter" />
+```
+
+---
+
+## BarkRadioCardGroup & BarkRadioCard
+
+Card-based radio selection for rich option presentation.
+
+### BarkRadioCardGroup Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text for the card group |
+| ChildContent | RenderFragment? | null | Radio card items |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Columns | int | 2 | Number of columns in grid layout |
+
+### BarkRadioCard Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content for the radio card |
+| Value | string? | null | Value of this card option |
+
+### Usage
+
+```razor
+<CascadingValue Value="radioCardGroup">
+    <BarkRadioCardGroup Label="Select a plan" @bind-Value="plan" Columns="3">
+        <BarkRadioCard Value="starter">
+            <h3>Starter</h3>
+            <p>Perfect for small projects</p>
+        </BarkRadioCard>
+    </BarkRadioCardGroup>
+</CascadingValue>
+```
+
+---
+
+## BarkField
+
+A form field wrapper component with label, helper text, and error handling.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | null | HTML id attribute |
+| Label | string? | null | Label text for the field |
+| ChildContent | RenderFragment? | null | Field content (input, select, etc.) |
+| HelperText | string? | null | Helper text displayed below field |
+| ErrorText | string? | null | Error text displayed when HasError is true |
+| HasError | bool | false | Whether to display error state |
+
+### Usage
+
+```razor
+<BarkField Label="Email" HelperText="We'll never share your email">
+    <BarkInput Type="email" Placeholder="you@example.com" />
+</BarkField>
+```
+
+---
+
+## BarkFieldset
+
+A fieldset component for grouping related form fields.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Legend | string? | null | Fieldset legend text |
+| HelperText | string? | null | Helper text displayed below legend |
+| ChildContent | RenderFragment? | null | Form fields content |
+| Disabled | bool | false | Whether all fields in the fieldset are disabled |
+
+### Usage
+
+```razor
+<BarkFieldset Legend="Personal Information" HelperText="Please provide your details">
+    <BarkInput Label="First Name" />
+    <BarkInput Label="Last Name" />
+</BarkFieldset>
+```
+
+---
+
+## BarkEditable
+
+An inline editable text component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Value | string? | null | Current text value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Placeholder | string? | "Click to edit" | Placeholder text when empty |
+
+### Usage
+
+```razor
+<BarkEditable @bind-Value="title" Placeholder="Enter title" />
+```
+
+---
+
+## BarkColorPicker
+
+A color picker component with hex input.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the picker |
+| Value | string | "#000000" | Current color value (hex format) |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Disabled | bool | false | Whether the picker is disabled |
+| HelperText | string? | null | Helper text displayed below picker |
+
+### Usage
+
+```razor
+<BarkColorPicker Label="Primary Color" @bind-Value="primaryColor" />
+```
+
+---
+
+## BarkDatePicker
+
+A date picker component using native date input.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | auto-generated | HTML id attribute |
+| Label | string? | null | Label text displayed above the picker |
+| Value | DateTime? | null | Current date value |
+| ValueChanged | EventCallback<DateTime?> | - | Event callback when value changes |
+| Disabled | bool | false | Whether the picker is disabled |
+| Size | string | "md" | Picker size: "sm", "md", or "lg" |
+| HasError | bool | false | Whether to display error state |
+| HelperText | string? | null | Helper or error text displayed below picker |
+
+### Usage
+
+```razor
+<BarkDatePicker Label="Birth Date" @bind-Value="birthDate" />
+```
+
+---
+
+## BarkCombobox
+
+A searchable dropdown component with filtering.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Label | string? | null | Label text displayed above the combobox |
+| Placeholder | string? | null | Placeholder text |
+| Value | string? | null | Currently selected value |
+| ValueChanged | EventCallback<string> | - | Event callback when value changes |
+| Options | List<string> | new() | List of available options |
+| Disabled | bool | false | Whether the combobox is disabled |
+| HelperText | string? | null | Helper text displayed below combobox |
+
+### Usage
+
+```razor
+<BarkCombobox Label="Search countries" @bind-Value="country" Options="countries" />
+```
+
+---
