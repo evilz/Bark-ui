@@ -1,0 +1,50 @@
+@namespace BarkUI.Components
+
+<button 
+    type="button"
+    class="@GetToggleClasses()"
+    @onclick="HandleClick"
+    @attributes="AdditionalAttributes">
+    @ChildContent
+</button>
+
+@code {
+    [CascadingParameter]
+    public BarkToggleGroup? ToggleGroup { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool IsActive => ToggleGroup?.Value == Value;
+
+    private async Task HandleClick()
+    {
+        if (ToggleGroup != null && Value != null)
+        {
+            await ToggleGroup.HandleToggleChange(Value);
+        }
+    }
+
+    private string GetToggleClasses()
+    {
+        var classes = new List<string> { "bark-toggle" };
+        
+        if (IsActive)
+        {
+            classes.Add("bark-toggle--active");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

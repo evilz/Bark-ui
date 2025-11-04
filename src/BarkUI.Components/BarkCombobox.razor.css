@@ -1,0 +1,76 @@
+.bark-combobox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+.bark-combobox-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-combobox-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.bark-combobox-input {
+    flex: 1;
+    padding: 0.625rem 2.5rem 0.625rem 0.875rem;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
+    font-family: inherit;
+    background-color: var(--bg-default);
+    color: var(--fg-default);
+    outline: none;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bark-combobox-input:focus {
+    border-color: var(--color-palette-default);
+    box-shadow: 0 0 0 1px var(--color-palette-default);
+}
+
+.bark-combobox-toggle {
+    position: absolute;
+    right: 0.5rem;
+    background: none;
+    border: none;
+    color: var(--fg-muted);
+    cursor: pointer;
+    font-size: 0.625rem;
+    padding: 0.25rem;
+}
+
+.bark-combobox-dropdown {
+    position: absolute;
+    top: calc(100% + 0.25rem);
+    left: 0;
+    right: 0;
+    max-height: 16rem;
+    overflow-y: auto;
+    background-color: var(--bg-default);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+}
+
+.bark-combobox-option {
+    padding: 0.625rem 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--fg-default);
+}
+
+.bark-combobox-option:hover {
+    background-color: var(--bg-subtle);
+}
+
+.bark-combobox-helper {
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+}

@@ -1,0 +1,114 @@
+.bark-number-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-number-input-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-number-input-container {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
+    overflow: hidden;
+    background-color: var(--bg-default);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bark-number-input-container:focus-within {
+    border-color: var(--color-palette-default);
+    box-shadow: 0 0 0 1px var(--color-palette-default);
+}
+
+.bark-number-input {
+    flex: 1;
+    border: none;
+    font-family: inherit;
+    background-color: transparent;
+    color: var(--fg-default);
+    outline: none;
+    text-align: center;
+    appearance: textfield;
+}
+
+.bark-number-input::-webkit-outer-spin-button,
+.bark-number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bark-number-input--sm {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    height: 2rem;
+}
+
+.bark-number-input--md {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    height: 2.5rem;
+}
+
+.bark-number-input--lg {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    height: 3rem;
+}
+
+.bark-number-input__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-muted);
+    border: none;
+    cursor: pointer;
+    color: var(--fg-default);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 0.75rem;
+}
+
+.bark-number-input__button:hover:not(:disabled) {
+    background-color: var(--bg-emphasized);
+}
+
+.bark-number-input__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.bark-number-input__button--decrement {
+    border-right: 1px solid var(--border-default);
+}
+
+.bark-number-input__button--increment {
+    border-left: 1px solid var(--border-default);
+}
+
+.bark-number-input-container:has(.bark-number-input--error) {
+    border-color: var(--error);
+}
+
+.bark-number-input-container:has(.bark-number-input--error):focus-within {
+    border-color: var(--error);
+    box-shadow: 0 0 0 1px var(--error);
+}
+
+.bark-number-input--disabled {
+    cursor: not-allowed;
+}
+
+.bark-number-input-helper {
+    font-size: 0.8125rem;
+    color: var(--fg-muted);
+}
+
+.bark-number-input--error ~ .bark-number-input-helper {
+    color: var(--error);
+}

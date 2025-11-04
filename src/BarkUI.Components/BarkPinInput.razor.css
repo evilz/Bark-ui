@@ -1,0 +1,62 @@
+.bark-pin-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-pin-input-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-pin-input-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bark-pin-input {
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
+    font-family: inherit;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--bg-default);
+    color: var(--fg-default);
+    outline: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+.bark-pin-input:hover:not(:disabled) {
+    border-color: var(--border-muted);
+}
+
+.bark-pin-input:focus {
+    border-color: var(--color-palette-default);
+    box-shadow: 0 0 0 1px var(--color-palette-default);
+}
+
+.bark-pin-input--sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.875rem;
+}
+
+.bark-pin-input--md {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.bark-pin-input--lg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+}
+
+.bark-pin-input--disabled {
+    background-color: var(--bg-disabled);
+    color: var(--fg-disabled);
+    cursor: not-allowed;
+    opacity: 1;
+}

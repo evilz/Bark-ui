@@ -1,0 +1,22 @@
+.bark-toggle-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-toggle-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-toggle-group {
+    display: inline-flex;
+    gap: 0;
+}
+
+.bark-toggle-group--default {
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
+    overflow: hidden;
+}

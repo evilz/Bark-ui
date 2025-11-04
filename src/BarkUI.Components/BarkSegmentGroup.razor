@@ -1,0 +1,50 @@
+@namespace BarkUI.Components
+
+<div class="bark-segment-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-segment-label">@Label</label>
+    }
+    <div class="@GetSegmentGroupClasses()">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    internal async Task HandleSegmentChange(string value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+
+    private string GetSegmentGroupClasses()
+    {
+        var classes = new List<string> { "bark-segment-group" };
+        classes.Add($"bark-segment-group--{Size}");
+        
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

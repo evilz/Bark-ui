@@ -1,0 +1,119 @@
+@namespace BarkUI.Components
+
+<div class="bark-file-upload-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-file-upload-label">@Label</label>
+    }
+    <div class="bark-file-upload-dropzone" @ondrop="HandleDrop" @ondragover:preventDefault @ondragenter="HandleDragEnter" @ondragleave="HandleDragLeave">
+        <input 
+            type="file"
+            class="bark-file-upload-input"
+            id="@Id"
+            multiple="@Multiple"
+            accept="@Accept"
+            disabled="@Disabled"
+            @onchange="HandleChange"
+            @ref="fileInputRef"
+            @attributes="AdditionalAttributes" />
+        <label for="@Id" class="bark-file-upload-content">
+            <span class="bark-file-upload-icon">📁</span>
+            <span class="bark-file-upload-text">
+                @if (!string.IsNullOrEmpty(PlaceholderText))
+                {
+                    @PlaceholderText
+                }
+                else
+                {
+                    <span>Drop files here or <span class="bark-file-upload-link">browse</span></span>
+                }
+            </span>
+            @if (!string.IsNullOrEmpty(HelperText))
+            {
+                <span class="bark-file-upload-helper">@HelperText</span>
+            }
+        </label>
+    </div>
+    @if (fileNames.Any())
+    {
+        <div class="bark-file-upload-files">
+            @foreach (var fileName in fileNames)
+            {
+                <div class="bark-file-upload-file">
+                    <span class="bark-file-upload-file-name">📄 @fileName</span>
+                    <button type="button" class="bark-file-upload-file-remove" @onclick="() => RemoveFile(fileName)">✕</button>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? PlaceholderText { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter]
+    public bool Multiple { get; set; } = false;
+
+    [Parameter]
+    public string? Accept { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public EventCallback<string[]> FilesChanged { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private ElementReference fileInputRef;
+    private List<string> fileNames = new();
+
+    protected override void OnInitialized()
+    {
+        if (string.IsNullOrEmpty(Id))
+        {
+            Id = $"bark-file-upload-{Guid.NewGuid()}";
+        }
+    }
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        // In a real implementation, you would use JS interop to get file information
+        // For now, we'll simulate with placeholder names
+        fileNames.Clear();
+        fileNames.Add("uploaded-file.txt");
+        await FilesChanged.InvokeAsync(fileNames.ToArray());
+    }
+
+    private void HandleDrop(DragEventArgs e)
+    {
+        // Handle file drop - requires JS interop
+    }
+
+    private void HandleDragEnter(DragEventArgs e)
+    {
+        // Handle drag enter - visual feedback could be added
+    }
+
+    private void HandleDragLeave(DragEventArgs e)
+    {
+        // Handle drag leave - visual feedback could be removed
+    }
+
+    private async Task RemoveFile(string fileName)
+    {
+        fileNames.Remove(fileName);
+        await FilesChanged.InvokeAsync(fileNames.ToArray());
+    }
+}

@@ -1,0 +1,86 @@
+@namespace BarkUI.Components
+
+<div class="bark-tags-input-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-tags-input-label">@Label</label>
+    }
+    <div class="bark-tags-input-container">
+        @foreach (var tag in tags)
+        {
+            <div class="bark-tags-input-tag">
+                <span>@tag</span>
+                <button type="button" class="bark-tags-input-tag-remove" @onclick="() => RemoveTag(tag)">✕</button>
+            </div>
+        }
+        <input 
+            type="text"
+            class="bark-tags-input-input"
+            placeholder="@Placeholder"
+            @bind="currentInput"
+            @onkeydown="HandleKeyDown"
+            disabled="@Disabled" />
+    </div>
+    @if (!string.IsNullOrEmpty(HelperText))
+    {
+        <span class="bark-tags-input-helper">@HelperText</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public List<string> Tags { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<List<string>> TagsChanged { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private List<string> tags = new();
+    private string currentInput = string.Empty;
+
+    protected override void OnParametersSet()
+    {
+        tags = Tags ?? new List<string>();
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !string.IsNullOrWhiteSpace(currentInput))
+        {
+            if (!tags.Contains(currentInput.Trim()))
+            {
+                tags.Add(currentInput.Trim());
+                await TagsChanged.InvokeAsync(tags);
+            }
+            currentInput = string.Empty;
+        }
+        else if (e.Key == "Backspace" && string.IsNullOrEmpty(currentInput) && tags.Any())
+        {
+            tags.RemoveAt(tags.Count - 1);
+            await TagsChanged.InvokeAsync(tags);
+        }
+    }
+
+    private async Task RemoveTag(string tag)
+    {
+        tags.Remove(tag);
+        await TagsChanged.InvokeAsync(tags);
+    }
+}

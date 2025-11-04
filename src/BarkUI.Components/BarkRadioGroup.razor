@@ -1,0 +1,53 @@
+@namespace BarkUI.Components
+
+<div class="@GetRadioGroupClasses()">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-radio-group__label">@Label</label>
+    }
+    <div class="bark-radio-group__items">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string Orientation { get; set; } = "vertical";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    internal async Task HandleRadioChange(string value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+
+    private string GetRadioGroupClasses()
+    {
+        var classes = new List<string> { "bark-radio-group" };
+        classes.Add($"bark-radio-group--{Orientation}");
+        
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

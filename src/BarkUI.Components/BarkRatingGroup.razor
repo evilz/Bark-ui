@@ -1,0 +1,91 @@
+@namespace BarkUI.Components
+
+<div class="bark-rating-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-rating-label">@Label</label>
+    }
+    <div class="@GetRatingClasses()">
+        @for (int i = 1; i <= Max; i++)
+        {
+            var currentValue = i;
+            <button 
+                type="button"
+                class="bark-rating__item @(currentValue <= Value ? "bark-rating__item--filled" : "")"
+                disabled="@Disabled"
+                @onclick="() => HandleClick(currentValue)"
+                @onmouseenter="() => HandleHover(currentValue)"
+                @onmouseleave="HandleMouseLeave">
+                @Icon
+            </button>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public int Value { get; set; }
+
+    [Parameter]
+    public EventCallback<int> ValueChanged { get; set; }
+
+    [Parameter]
+    public int Max { get; set; } = 5;
+
+    [Parameter]
+    public string Icon { get; set; } = "⭐";
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private int hoverValue = 0;
+
+    private async Task HandleClick(int value)
+    {
+        if (!Disabled)
+        {
+            Value = value;
+            await ValueChanged.InvokeAsync(Value);
+        }
+    }
+
+    private void HandleHover(int value)
+    {
+        if (!Disabled)
+        {
+            hoverValue = value;
+        }
+    }
+
+    private void HandleMouseLeave()
+    {
+        hoverValue = 0;
+    }
+
+    private string GetRatingClasses()
+    {
+        var classes = new List<string> { "bark-rating" };
+        classes.Add($"bark-rating--{Size}");
+        
+        if (Disabled)
+        {
+            classes.Add("bark-rating--disabled");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

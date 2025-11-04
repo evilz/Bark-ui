@@ -1,0 +1,88 @@
+@namespace BarkUI.Components
+
+<div class="bark-editable">
+    @if (!isEditing)
+    {
+        <div class="bark-editable__preview" @onclick="StartEdit">
+            @if (!string.IsNullOrEmpty(Value))
+            {
+                @Value
+            }
+            else
+            {
+                <span class="bark-editable__placeholder">@Placeholder</span>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="bark-editable__edit">
+            <input 
+                type="text"
+                class="bark-editable__input"
+                value="@Value"
+                @oninput="HandleInput"
+                @onblur="SaveEdit"
+                @onkeydown="HandleKeyDown"
+                @ref="inputRef" />
+            <div class="bark-editable__actions">
+                <button type="button" class="bark-editable__button bark-editable__button--save" @onclick="SaveEdit">✓</button>
+                <button type="button" class="bark-editable__button bark-editable__button--cancel" @onclick="CancelEdit">✕</button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; } = "Click to edit";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool isEditing = false;
+    private string? tempValue;
+    private ElementReference inputRef;
+
+    private void StartEdit()
+    {
+        isEditing = true;
+        tempValue = Value;
+    }
+
+    private async Task HandleInput(ChangeEventArgs e)
+    {
+        tempValue = e.Value?.ToString();
+    }
+
+    private async Task SaveEdit()
+    {
+        Value = tempValue;
+        isEditing = false;
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private void CancelEdit()
+    {
+        isEditing = false;
+        tempValue = Value;
+    }
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await SaveEdit();
+        }
+        else if (e.Key == "Escape")
+        {
+            await Task.Run(CancelEdit);
+        }
+    }
+}

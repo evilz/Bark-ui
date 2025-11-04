@@ -1,0 +1,42 @@
+@namespace BarkUI.Components
+
+<div class="bark-field">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-field__label" for="@Id">@Label</label>
+    }
+    <div class="bark-field__content">
+        @ChildContent
+    </div>
+    @if (!string.IsNullOrEmpty(HelperText))
+    {
+        <span class="bark-field__helper">@HelperText</span>
+    }
+    @if (HasError && !string.IsNullOrEmpty(ErrorText))
+    {
+        <span class="bark-field__error">@ErrorText</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter]
+    public string? ErrorText { get; set; }
+
+    [Parameter]
+    public bool HasError { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+}

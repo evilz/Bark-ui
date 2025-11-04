@@ -1,0 +1,356 @@
+@page "/forms"
+
+<PageTitle>Forms - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; color: #111827;">Form Components</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Comprehensive form controls for building accessible and beautiful forms
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Checkbox Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Checkbox</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <BarkCheckbox @bind-Checked="checkbox1">Accept terms and conditions</BarkCheckbox>
+                        <BarkCheckbox @bind-Checked="checkbox2" Size="sm">Small checkbox</BarkCheckbox>
+                        <BarkCheckbox @bind-Checked="checkbox3" Size="lg">Large checkbox</BarkCheckbox>
+                        <BarkCheckbox Checked="true" Disabled="true">Disabled checkbox</BarkCheckbox>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Switch Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Switch</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <BarkSwitch @bind-Checked="switch1" Label="Enable notifications" />
+                        <BarkSwitch @bind-Checked="switch2" Label="Dark mode" LabelPosition="end" />
+                        <BarkSwitch Checked="false" Label="Small switch" Size="sm" />
+                        <BarkSwitch Checked="true" Label="Large switch" Size="lg" />
+                        <BarkSwitch Checked="true" Disabled="true" Label="Disabled switch" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Textarea Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Textarea</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkTextarea Label="Comments" Placeholder="Enter your comments..." @bind-Value="textareaValue" />
+                        <BarkTextarea Label="Description" Placeholder="Describe your issue..." Rows="6" HelperText="Maximum 500 characters" />
+                        <BarkTextarea Label="Error example" HasError="true" HelperText="This field is required" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Select Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Select</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkSelect Label="Country" Placeholder="Select a country" @bind-Value="selectValue">
+                            <option value="us">United States</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="ca">Canada</option>
+                            <option value="au">Australia</option>
+                        </BarkSelect>
+                        <BarkSelect Label="Priority" Size="sm">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </BarkSelect>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Slider Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Slider</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkSlider Label="Volume" @bind-Value="sliderValue" ShowValue="true" />
+                        <BarkSlider Label="Brightness" Value="75" Min="0" Max="100" ShowValue="true" />
+                        <BarkSlider Label="Small slider" Value="30" Size="sm" />
+                        <BarkSlider Label="Large slider" Value="60" Size="lg" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Radio Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Radio Group</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <CascadingValue Value="radioGroup1">
+                            <BarkRadioGroup Label="Choose a plan" @bind-Value="radioValue1" Orientation="vertical">
+                                <BarkRadio Value="free">Free - $0/month</BarkRadio>
+                                <BarkRadio Value="pro">Pro - $10/month</BarkRadio>
+                                <BarkRadio Value="enterprise">Enterprise - $50/month</BarkRadio>
+                            </BarkRadioGroup>
+                        </CascadingValue>
+                        
+                        <CascadingValue Value="radioGroup2">
+                            <BarkRadioGroup Label="Select size" @bind-Value="radioValue2" Orientation="horizontal">
+                                <BarkRadio Value="small">Small</BarkRadio>
+                                <BarkRadio Value="medium">Medium</BarkRadio>
+                                <BarkRadio Value="large">Large</BarkRadio>
+                            </BarkRadioGroup>
+                        </CascadingValue>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Number Input Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Number Input</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkNumberInput Label="Quantity" @bind-Value="numberValue" Min="0" Max="100" />
+                        <BarkNumberInput Label="Price" Value="10" Step="5" Min="0" Max="1000" />
+                        <BarkNumberInput Label="Age" Value="25" Min="0" Max="120" HelperText="Enter your age" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Pin Input Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Pin Input</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkPinInput Label="Enter PIN" @bind-Value="pinValue" Length="4" />
+                        <BarkPinInput Label="Security Code" Value="" Length="6" Mask="true" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- File Upload Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">File Upload</h2>
+                <BarkCard>
+                    <BarkFileUpload 
+                        Label="Upload files" 
+                        HelperText="Supported formats: PDF, DOC, DOCX (max 10MB)"
+                        Multiple="true" />
+                </BarkCard>
+            </section>
+
+            <!-- Rating Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Rating Group</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkRatingGroup Label="Rate your experience" @bind-Value="ratingValue" />
+                        <BarkRatingGroup Label="Product quality" Value="4" Max="5" />
+                        <BarkRatingGroup Label="Large rating" Value="3" Max="5" Size="lg" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Segment Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Segment Group</h2>
+                <BarkCard>
+                    <CascadingValue Value="segmentGroup">
+                        <BarkSegmentGroup Label="View mode" @bind-Value="segmentValue">
+                            <BarkSegment Value="list">List</BarkSegment>
+                            <BarkSegment Value="grid">Grid</BarkSegment>
+                            <BarkSegment Value="table">Table</BarkSegment>
+                        </BarkSegmentGroup>
+                    </CascadingValue>
+                </BarkCard>
+            </section>
+
+            <!-- Toggle Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Toggle Group</h2>
+                <BarkCard>
+                    <CascadingValue Value="toggleGroup">
+                        <BarkToggleGroup Label="Text alignment" @bind-Value="toggleValue">
+                            <BarkToggle Value="left">Left</BarkToggle>
+                            <BarkToggle Value="center">Center</BarkToggle>
+                            <BarkToggle Value="right">Right</BarkToggle>
+                        </BarkToggleGroup>
+                    </CascadingValue>
+                </BarkCard>
+            </section>
+
+            <!-- Tags Input Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Tags Input</h2>
+                <BarkCard>
+                    <BarkTagsInput 
+                        Label="Tags" 
+                        Placeholder="Type and press Enter"
+                        @bind-Tags="tags"
+                        HelperText="Press Enter to add a tag" />
+                </BarkCard>
+            </section>
+
+            <!-- Radio Card Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Radio Card Group</h2>
+                <BarkCard>
+                    <CascadingValue Value="radioCardGroup">
+                        <BarkRadioCardGroup Label="Select a plan" @bind-Value="radioCardValue" Columns="3">
+                            <BarkRadioCard Value="starter">
+                                <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Starter</h3>
+                                <p style="color: #6b7280; font-size: 0.875rem;">Perfect for small projects</p>
+                                <p style="font-weight: bold; margin-top: 0.5rem;">$9/mo</p>
+                            </BarkRadioCard>
+                            <BarkRadioCard Value="professional">
+                                <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Professional</h3>
+                                <p style="color: #6b7280; font-size: 0.875rem;">For growing teams</p>
+                                <p style="font-weight: bold; margin-top: 0.5rem;">$29/mo</p>
+                            </BarkRadioCard>
+                            <BarkRadioCard Value="enterprise">
+                                <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Enterprise</h3>
+                                <p style="color: #6b7280; font-size: 0.875rem;">For large organizations</p>
+                                <p style="font-weight: bold; margin-top: 0.5rem;">$99/mo</p>
+                            </BarkRadioCard>
+                        </BarkRadioCardGroup>
+                    </CascadingValue>
+                </BarkCard>
+            </section>
+
+            <!-- Field Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Field (Wrapper)</h2>
+                <BarkCard>
+                    <BarkField Label="Email address" HelperText="We'll never share your email">
+                        <BarkInput Type="email" Placeholder="you@example.com" />
+                    </BarkField>
+                </BarkCard>
+            </section>
+
+            <!-- Fieldset Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Fieldset</h2>
+                <BarkCard>
+                    <BarkFieldset Legend="Personal Information" HelperText="Please provide your personal details">
+                        <BarkInput Label="First Name" Placeholder="John" />
+                        <BarkInput Label="Last Name" Placeholder="Doe" />
+                        <BarkInput Label="Email" Type="email" Placeholder="john@example.com" />
+                    </BarkFieldset>
+                </BarkCard>
+            </section>
+
+            <!-- Editable Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Editable</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div>
+                            <strong>Title: </strong>
+                            <BarkEditable @bind-Value="editableValue" Placeholder="Click to edit" />
+                        </div>
+                        <div>
+                            <strong>Description: </strong>
+                            <BarkEditable Value="This is an editable text field" />
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Color Picker Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Color Picker</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkColorPicker Label="Primary Color" @bind-Value="colorValue" />
+                        <BarkColorPicker Label="Background Color" Value="#f3f4f6" HelperText="Choose a background color" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Date Picker Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Date Picker</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkDatePicker Label="Birth Date" @bind-Value="dateValue" />
+                        <BarkDatePicker Label="Event Date" HelperText="Select the event date" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Combobox Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Combobox</h2>
+                <BarkCard>
+                    <BarkCombobox 
+                        Label="Search countries" 
+                        Placeholder="Type to search..."
+                        @bind-Value="comboboxValue"
+                        Options="countries"
+                        HelperText="Start typing to filter options" />
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+    // Component state
+    private bool checkbox1 = false;
+    private bool checkbox2 = false;
+    private bool checkbox3 = false;
+    
+    private bool switch1 = false;
+    private bool switch2 = false;
+    
+    private string textareaValue = string.Empty;
+    private string? selectValue;
+    
+    private int sliderValue = 50;
+    
+    private BarkRadioGroup? radioGroup1;
+    private BarkRadioGroup? radioGroup2;
+    private string radioValue1 = "free";
+    private string radioValue2 = "medium";
+    
+    private int numberValue = 1;
+    private string pinValue = string.Empty;
+    
+    private int ratingValue = 0;
+    
+    private BarkSegmentGroup? segmentGroup;
+    private string segmentValue = "list";
+    
+    private BarkToggleGroup? toggleGroup;
+    private string toggleValue = "left";
+    
+    private List<string> tags = new() { "Blazor", "C#" };
+    
+    private BarkRadioCardGroup? radioCardGroup;
+    private string radioCardValue = "professional";
+    
+    private string editableValue = "Bark UI";
+    
+    private string colorValue = "#3b82f6";
+    private DateTime? dateValue = DateTime.Today;
+    
+    private string comboboxValue = string.Empty;
+    private List<string> countries = new()
+    {
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia",
+        "Germany",
+        "France",
+        "Japan",
+        "Brazil",
+        "India",
+        "China"
+    };
+}
