@@ -6,14 +6,14 @@
     border: none;
     cursor: pointer;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: var(--radius-sm, 0.375rem);
+    border-radius: var(--radii-l2, 0.375rem);
     font-family: inherit;
     outline: none;
     position: relative;
 }
 
 .bark-button:focus-visible {
-    box-shadow: 0 0 0 2px var(--color-bg-default, #fff), 0 0 0 4px var(--color-accent-default, #171717);
+    box-shadow: 0 0 0 2px var(--bg-default), 0 0 0 4px var(--color-palette-default);
 }
 
 .bark-button--md {
@@ -39,64 +39,64 @@
 
 /* Solid Variant */
 .bark-button--solid.bark-button--primary {
-    background-color: var(--color-accent-default, #171717);
-    color: var(--color-accent-fg, #ffffff);
+    background-color: var(--color-palette-default);
+    color: var(--color-palette-fg);
 }
 
 .bark-button--solid.bark-button--primary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-accent-emphasized, #0a0a0a);
+    background-color: var(--color-palette-emphasized);
 }
 
 .bark-button--solid.bark-button--secondary {
-    background-color: var(--color-bg-muted, #f5f5f5);
-    color: var(--color-fg-default, #0a0a0a);
+    background-color: var(--bg-muted);
+    color: var(--fg-default);
 }
 
 .bark-button--solid.bark-button--secondary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-bg-emphasized, #e5e5e5);
+    background-color: var(--bg-emphasized);
 }
 
 .bark-button--solid.bark-button--success {
-    background-color: #16a34a;
-    color: #ffffff;
+    background-color: var(--success);
+    color: var(--success-fg);
 }
 
 .bark-button--solid.bark-button--success:hover:not(.bark-button--disabled) {
-    background-color: #15803d;
+    opacity: 0.9;
 }
 
 .bark-button--solid.bark-button--danger {
-    background-color: #dc2626;
-    color: #ffffff;
+    background-color: var(--error);
+    color: var(--error-fg);
 }
 
 .bark-button--solid.bark-button--danger:hover:not(.bark-button--disabled) {
-    background-color: #b91c1c;
+    opacity: 0.9;
 }
 
 /* Outline Variant */
 .bark-button--outline {
     background-color: transparent;
-    border: 1px solid var(--color-border-default, #e5e5e5);
+    border: 1px solid var(--border-default);
 }
 
 .bark-button--outline.bark-button--primary {
-    border-color: var(--color-border-default, #e5e5e5);
-    color: var(--color-fg-default, #0a0a0a);
+    border-color: var(--border-default);
+    color: var(--fg-default);
 }
 
 .bark-button--outline.bark-button--primary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-bg-subtle, #f9f9f9);
+    background-color: var(--bg-subtle);
 }
 
 .bark-button--outline.bark-button--secondary {
-    border-color: var(--color-border-muted, #d4d4d4);
-    color: var(--color-fg-muted, #737373);
+    border-color: var(--border-muted);
+    color: var(--fg-muted);
 }
 
 .bark-button--outline.bark-button--secondary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-bg-subtle, #f9f9f9);
-    border-color: var(--color-border-default, #e5e5e5);
+    background-color: var(--bg-subtle);
+    border-color: var(--border-default);
 }
 
 /* Ghost Variant */
@@ -106,19 +106,19 @@
 }
 
 .bark-button--ghost.bark-button--primary {
-    color: var(--color-fg-default, #0a0a0a);
+    color: var(--fg-default);
 }
 
 .bark-button--ghost.bark-button--primary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-bg-subtle, #f9f9f9);
+    background-color: var(--bg-subtle);
 }
 
 .bark-button--ghost.bark-button--secondary {
-    color: var(--color-fg-muted, #737373);
+    color: var(--fg-muted);
 }
 
 .bark-button--ghost.bark-button--secondary:hover:not(.bark-button--disabled) {
-    background-color: var(--color-bg-subtle, #f9f9f9);
+    background-color: var(--bg-subtle);
 }
 
 /* Disabled State */

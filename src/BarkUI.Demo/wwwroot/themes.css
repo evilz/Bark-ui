@@ -1,0 +1,168 @@
+/* 
+ * Bark UI Theme System
+ * 
+ * This file contains predefined themes that can be applied by adding a data-theme attribute
+ * to the html element. For example: <html data-theme="blue">
+ * 
+ * To create a custom theme, override the CSS custom properties in the :root or [data-theme="your-theme"] selector.
+ */
+
+/* Blue Theme */
+[data-theme="blue"] {
+    /* Background Colors */
+    --colors-bg-canvas: 250 250 251;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 249 250 251;
+    --colors-bg-muted: 243 244 246;
+    --colors-bg-emphasized: 229 231 235;
+    --colors-bg-disabled: 243 244 246;
+    
+    /* Foreground Colors */
+    --colors-fg-default: 17 24 39;
+    --colors-fg-muted: 107 114 128;
+    --colors-fg-subtle: 156 163 175;
+    --colors-fg-disabled: 209 213 219;
+    
+    /* Border Colors */
+    --colors-border-default: 229 231 235;
+    --colors-border-subtle: 243 244 246;
+    --colors-border-muted: 209 213 219;
+    --colors-border-disabled: 229 231 235;
+    --colors-border-outline: 156 163 175;
+    
+    /* Accent/Color Palette Colors - Blue */
+    --colors-color-palette-default: 37 99 235;
+    --colors-color-palette-emphasized: 29 78 216;
+    --colors-color-palette-muted: 96 165 250;
+    --colors-color-palette-subtle: 147 197 253;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 30 64 175;
+}
+
+/* Green Theme */
+[data-theme="green"] {
+    /* Background Colors */
+    --colors-bg-canvas: 250 250 250;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 249 250 251;
+    --colors-bg-muted: 243 244 246;
+    --colors-bg-emphasized: 229 231 235;
+    --colors-bg-disabled: 243 244 246;
+    
+    /* Foreground Colors */
+    --colors-fg-default: 17 24 39;
+    --colors-fg-muted: 107 114 128;
+    --colors-fg-subtle: 156 163 175;
+    --colors-fg-disabled: 209 213 219;
+    
+    /* Border Colors */
+    --colors-border-default: 229 231 235;
+    --colors-border-subtle: 243 244 246;
+    --colors-border-muted: 209 213 219;
+    --colors-border-disabled: 229 231 235;
+    --colors-border-outline: 156 163 175;
+    
+    /* Accent/Color Palette Colors - Green */
+    --colors-color-palette-default: 22 163 74;
+    --colors-color-palette-emphasized: 21 128 61;
+    --colors-color-palette-muted: 74 222 128;
+    --colors-color-palette-subtle: 134 239 172;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 22 101 52;
+}
+
+/* Purple Theme */
+[data-theme="purple"] {
+    /* Background Colors */
+    --colors-bg-canvas: 250 250 251;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 249 250 251;
+    --colors-bg-muted: 243 244 246;
+    --colors-bg-emphasized: 229 231 235;
+    --colors-bg-disabled: 243 244 246;
+    
+    /* Foreground Colors */
+    --colors-fg-default: 17 24 39;
+    --colors-fg-muted: 107 114 128;
+    --colors-fg-subtle: 156 163 175;
+    --colors-fg-disabled: 209 213 219;
+    
+    /* Border Colors */
+    --colors-border-default: 229 231 235;
+    --colors-border-subtle: 243 244 246;
+    --colors-border-muted: 209 213 219;
+    --colors-border-disabled: 229 231 235;
+    --colors-border-outline: 156 163 175;
+    
+    /* Accent/Color Palette Colors - Purple */
+    --colors-color-palette-default: 126 34 206;
+    --colors-color-palette-emphasized: 107 33 168;
+    --colors-color-palette-muted: 168 85 247;
+    --colors-color-palette-subtle: 196 181 253;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 91 33 182;
+}
+
+/* Rose Theme */
+[data-theme="rose"] {
+    /* Background Colors */
+    --colors-bg-canvas: 255 250 250;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 255 250 250;
+    --colors-bg-muted: 254 242 242;
+    --colors-bg-emphasized: 254 226 226;
+    --colors-bg-disabled: 254 242 242;
+    
+    /* Foreground Colors */
+    --colors-fg-default: 17 24 39;
+    --colors-fg-muted: 107 114 128;
+    --colors-fg-subtle: 156 163 175;
+    --colors-fg-disabled: 209 213 219;
+    
+    /* Border Colors */
+    --colors-border-default: 254 226 226;
+    --colors-border-subtle: 254 242 242;
+    --colors-border-muted: 254 205 211;
+    --colors-border-disabled: 254 226 226;
+    --colors-border-outline: 251 113 133;
+    
+    /* Accent/Color Palette Colors - Rose */
+    --colors-color-palette-default: 225 29 72;
+    --colors-color-palette-emphasized: 190 18 60;
+    --colors-color-palette-muted: 251 113 133;
+    --colors-color-palette-subtle: 253 164 175;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 159 18 57;
+}
+
+/* Slate Theme */
+[data-theme="slate"] {
+    /* Background Colors */
+    --colors-bg-canvas: 248 250 252;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 248 250 252;
+    --colors-bg-muted: 241 245 249;
+    --colors-bg-emphasized: 226 232 240;
+    --colors-bg-disabled: 241 245 249;
+    
+    /* Foreground Colors */
+    --colors-fg-default: 15 23 42;
+    --colors-fg-muted: 100 116 139;
+    --colors-fg-subtle: 148 163 184;
+    --colors-fg-disabled: 203 213 225;
+    
+    /* Border Colors */
+    --colors-border-default: 226 232 240;
+    --colors-border-subtle: 241 245 249;
+    --colors-border-muted: 203 213 225;
+    --colors-border-disabled: 226 232 240;
+    --colors-border-outline: 148 163 184;
+    
+    /* Accent/Color Palette Colors - Slate */
+    --colors-color-palette-default: 51 65 85;
+    --colors-color-palette-emphasized: 30 41 59;
+    --colors-color-palette-muted: 71 85 105;
+    --colors-color-palette-subtle: 100 116 139;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 30 41 59;
+}

@@ -1,34 +1,93 @@
 :root {
-    /* Park UI Color Palette - Neutral Theme */
-    --color-bg-canvas: #fafafa;
-    --color-bg-default: #ffffff;
-    --color-bg-subtle: #f9f9f9;
-    --color-bg-muted: #f5f5f5;
-    --color-bg-emphasized: #e5e5e5;
-    --color-bg-disabled: #f5f5f5;
+    /* Park UI Semantic Tokens - Default (Neutral) Theme */
+    /* Background Colors */
+    --colors-bg-canvas: 250 250 250;
+    --colors-bg-default: 255 255 255;
+    --colors-bg-subtle: 249 249 249;
+    --colors-bg-muted: 245 245 245;
+    --colors-bg-emphasized: 229 229 229;
+    --colors-bg-disabled: 245 245 245;
     
-    --color-fg-default: #0a0a0a;
-    --color-fg-muted: #737373;
-    --color-fg-subtle: #a3a3a3;
-    --color-fg-disabled: #d4d4d4;
+    /* Foreground Colors */
+    --colors-fg-default: 10 10 10;
+    --colors-fg-muted: 115 115 115;
+    --colors-fg-subtle: 163 163 163;
+    --colors-fg-disabled: 212 212 212;
     
-    --color-border-default: #e5e5e5;
-    --color-border-subtle: #f5f5f5;
-    --color-border-muted: #d4d4d4;
+    /* Border Colors */
+    --colors-border-default: 229 229 229;
+    --colors-border-subtle: 245 245 245;
+    --colors-border-muted: 212 212 212;
+    --colors-border-disabled: 229 229 229;
+    --colors-border-outline: 163 163 163;
     
-    --color-accent-default: #171717;
-    --color-accent-emphasized: #0a0a0a;
-    --color-accent-muted: #404040;
-    --color-accent-subtle: #a3a3a3;
-    --color-accent-fg: #ffffff;
+    /* Accent/Color Palette Colors */
+    --colors-color-palette-default: 23 23 23;
+    --colors-color-palette-emphasized: 10 10 10;
+    --colors-color-palette-muted: 64 64 64;
+    --colors-color-palette-subtle: 163 163 163;
+    --colors-color-palette-fg: 255 255 255;
+    --colors-color-palette-text: 23 23 23;
     
-    --radius-xs: 0.25rem;
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-lg: 0.75rem;
-    --radius-xl: 1rem;
+    /* Semantic Colors */
+    --colors-success: 22 163 74;
+    --colors-success-fg: 255 255 255;
+    --colors-error: 220 38 38;
+    --colors-error-fg: 255 255 255;
+    --colors-warning: 234 88 12;
+    --colors-warning-fg: 255 255 255;
+    --colors-info: 8 145 178;
+    --colors-info-fg: 255 255 255;
     
+    /* Border Radius Tokens */
+    --radii-l1: 0.25rem;
+    --radii-l2: 0.375rem;
+    --radii-l3: 0.5rem;
+    
+    /* Shadow Tokens */
+    --shadows-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadows-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadows-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    
+    /* Font */
     --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Helper functions for RGB colors */
+:root {
+    --bg-canvas: rgb(var(--colors-bg-canvas));
+    --bg-default: rgb(var(--colors-bg-default));
+    --bg-subtle: rgb(var(--colors-bg-subtle));
+    --bg-muted: rgb(var(--colors-bg-muted));
+    --bg-emphasized: rgb(var(--colors-bg-emphasized));
+    --bg-disabled: rgb(var(--colors-bg-disabled));
+    
+    --fg-default: rgb(var(--colors-fg-default));
+    --fg-muted: rgb(var(--colors-fg-muted));
+    --fg-subtle: rgb(var(--colors-fg-subtle));
+    --fg-disabled: rgb(var(--colors-fg-disabled));
+    
+    --border-default: rgb(var(--colors-border-default));
+    --border-subtle: rgb(var(--colors-border-subtle));
+    --border-muted: rgb(var(--colors-border-muted));
+    --border-disabled: rgb(var(--colors-border-disabled));
+    --border-outline: rgb(var(--colors-border-outline));
+    
+    --color-palette-default: rgb(var(--colors-color-palette-default));
+    --color-palette-emphasized: rgb(var(--colors-color-palette-emphasized));
+    --color-palette-muted: rgb(var(--colors-color-palette-muted));
+    --color-palette-subtle: rgb(var(--colors-color-palette-subtle));
+    --color-palette-fg: rgb(var(--colors-color-palette-fg));
+    --color-palette-text: rgb(var(--colors-color-palette-text));
+    
+    --success: rgb(var(--colors-success));
+    --success-fg: rgb(var(--colors-success-fg));
+    --error: rgb(var(--colors-error));
+    --error-fg: rgb(var(--colors-error-fg));
+    --warning: rgb(var(--colors-warning));
+    --warning-fg: rgb(var(--colors-warning-fg));
+    --info: rgb(var(--colors-info));
+    --info-fg: rgb(var(--colors-info-fg));
 }
 
 * {
@@ -46,8 +105,8 @@ html, body {
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--color-bg-canvas);
-    color: var(--color-fg-default);
+    background-color: var(--bg-canvas);
+    color: var(--fg-default);
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -58,12 +117,12 @@ body {
 }
 
 a {
-    color: var(--color-accent-default);
+    color: var(--color-palette-default);
     text-decoration: none;
 }
 
 a:hover {
-    color: var(--color-accent-emphasized);
+    color: var(--color-palette-emphasized);
 }
 
 .content {

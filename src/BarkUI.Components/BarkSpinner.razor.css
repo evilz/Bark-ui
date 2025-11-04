@@ -29,19 +29,19 @@
 }
 
 .bark-spinner--primary .bark-spinner-circle {
-    border-color: var(--color-accent-default, #171717);
+    border-color: var(--color-palette-default);
     border-top-color: transparent;
     border-right-color: transparent;
 }
 
 .bark-spinner--secondary .bark-spinner-circle {
-    border-color: var(--color-fg-muted, #737373);
+    border-color: var(--fg-muted);
     border-top-color: transparent;
     border-right-color: transparent;
 }
 
 .bark-spinner--success .bark-spinner-circle {
-    border-color: #16a34a;
+    border-color: var(--success);
     border-top-color: transparent;
     border-right-color: transparent;
 }

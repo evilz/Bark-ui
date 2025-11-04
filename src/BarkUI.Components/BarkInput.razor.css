@@ -7,31 +7,31 @@
 .bark-input-label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--color-fg-default, #0a0a0a);
+    color: var(--fg-default);
 }
 
 .bark-input {
     width: 100%;
-    border: 1px solid var(--color-border-default, #e5e5e5);
-    border-radius: var(--radius-md, 0.5rem);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radii-l2, 0.375rem);
     font-family: inherit;
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-    background-color: var(--color-bg-default, #ffffff);
-    color: var(--color-fg-default, #0a0a0a);
+    background-color: var(--bg-default);
+    color: var(--fg-default);
     outline: none;
 }
 
 .bark-input::placeholder {
-    color: var(--color-fg-subtle, #a3a3a3);
+    color: var(--fg-subtle);
 }
 
 .bark-input:hover:not(:disabled) {
-    border-color: var(--color-border-muted, #d4d4d4);
+    border-color: var(--border-muted);
 }
 
 .bark-input:focus {
-    border-color: var(--color-accent-default, #171717);
-    box-shadow: 0 0 0 1px var(--color-accent-default, #171717);
+    border-color: var(--color-palette-default);
+    box-shadow: 0 0 0 1px var(--color-palette-default);
 }
 
 .bark-input--sm {
@@ -53,26 +53,26 @@
 }
 
 .bark-input--error {
-    border-color: #dc2626;
+    border-color: var(--error);
 }
 
 .bark-input--error:focus {
-    border-color: #dc2626;
-    box-shadow: 0 0 0 1px #dc2626;
+    border-color: var(--error);
+    box-shadow: 0 0 0 1px var(--error);
 }
 
 .bark-input--disabled {
-    background-color: var(--color-bg-disabled, #f5f5f5);
-    color: var(--color-fg-disabled, #d4d4d4);
+    background-color: var(--bg-disabled);
+    color: var(--fg-disabled);
     cursor: not-allowed;
     opacity: 1;
 }
 
 .bark-input-helper {
     font-size: 0.8125rem;
-    color: var(--color-fg-muted, #737373);
+    color: var(--fg-muted);
 }
 
 .bark-input--error ~ .bark-input-helper {
-    color: #dc2626;
+    color: var(--error);
 }

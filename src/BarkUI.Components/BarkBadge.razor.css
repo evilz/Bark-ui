@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    border-radius: var(--radius-sm, 0.375rem);
+    border-radius: var(--radii-l1, 0.25rem);
     font-family: inherit;
     white-space: nowrap;
 }
@@ -31,33 +31,33 @@
 
 /* Solid Variant */
 .bark-badge--solid.bark-badge--primary {
-    background-color: var(--color-accent-default, #171717);
-    color: var(--color-accent-fg, #ffffff);
+    background-color: var(--color-palette-default);
+    color: var(--color-palette-fg);
 }
 
 .bark-badge--solid.bark-badge--secondary {
-    background-color: var(--color-bg-emphasized, #e5e5e5);
-    color: var(--color-fg-default, #0a0a0a);
+    background-color: var(--bg-emphasized);
+    color: var(--fg-default);
 }
 
 .bark-badge--solid.bark-badge--success {
-    background-color: #16a34a;
-    color: #ffffff;
+    background-color: var(--success);
+    color: var(--success-fg);
 }
 
 .bark-badge--solid.bark-badge--danger {
-    background-color: #dc2626;
-    color: #ffffff;
+    background-color: var(--error);
+    color: var(--error-fg);
 }
 
 .bark-badge--solid.bark-badge--warning {
-    background-color: #ea580c;
-    color: #ffffff;
+    background-color: var(--warning);
+    color: var(--warning-fg);
 }
 
 .bark-badge--solid.bark-badge--info {
-    background-color: #0891b2;
-    color: #ffffff;
+    background-color: var(--info);
+    color: var(--info-fg);
 }
 
 /* Outline Variant */
@@ -67,42 +67,42 @@
 }
 
 .bark-badge--outline.bark-badge--primary {
-    border-color: var(--color-border-default, #e5e5e5);
-    color: var(--color-fg-default, #0a0a0a);
+    border-color: var(--border-default);
+    color: var(--fg-default);
 }
 
 .bark-badge--outline.bark-badge--secondary {
-    border-color: var(--color-border-muted, #d4d4d4);
-    color: var(--color-fg-muted, #737373);
+    border-color: var(--border-muted);
+    color: var(--fg-muted);
 }
 
 .bark-badge--outline.bark-badge--success {
-    border-color: #16a34a;
-    color: #16a34a;
+    border-color: var(--success);
+    color: var(--success);
 }
 
 .bark-badge--outline.bark-badge--danger {
-    border-color: #dc2626;
-    color: #dc2626;
+    border-color: var(--error);
+    color: var(--error);
 }
 
 /* Subtle Variant */
 .bark-badge--subtle.bark-badge--primary {
-    background-color: var(--color-bg-muted, #f5f5f5);
-    color: var(--color-fg-default, #0a0a0a);
+    background-color: var(--bg-muted);
+    color: var(--fg-default);
 }
 
 .bark-badge--subtle.bark-badge--secondary {
-    background-color: var(--color-bg-subtle, #f9f9f9);
-    color: var(--color-fg-muted, #737373);
+    background-color: var(--bg-subtle);
+    color: var(--fg-muted);
 }
 
 .bark-badge--subtle.bark-badge--success {
-    background-color: #dcfce7;
-    color: #15803d;
+    background-color: rgba(var(--colors-success) / 0.1);
+    color: var(--success);
 }
 
 .bark-badge--subtle.bark-badge--danger {
-    background-color: #fee2e2;
-    color: #b91c1c;
+    background-color: rgba(var(--colors-error) / 0.1);
+    color: var(--error);
 }
