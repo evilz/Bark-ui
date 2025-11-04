@@ -1,0 +1,62 @@
+@namespace BarkUI.Components
+
+<div class="@GetClasses()" @attributes="AdditionalAttributes">
+    <div class="bark-splitter__pane bark-splitter__pane--first" style="@GetFirstPaneStyle()">
+        @FirstPane
+    </div>
+    <div class="bark-splitter__divider" @onmousedown="HandleMouseDown">
+        <div class="bark-splitter__handle"></div>
+    </div>
+    <div class="bark-splitter__pane bark-splitter__pane--second">
+        @SecondPane
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? FirstPane { get; set; }
+
+    [Parameter]
+    public RenderFragment? SecondPane { get; set; }
+
+    [Parameter]
+    public string Orientation { get; set; } = "horizontal";
+
+    [Parameter]
+    public int DefaultSize { get; set; } = 50;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private int currentSize;
+
+    protected override void OnInitialized()
+    {
+        currentSize = DefaultSize;
+    }
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-splitter" };
+        classes.Add($"bark-splitter--{Orientation}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private string GetFirstPaneStyle()
+    {
+        var property = Orientation == "horizontal" ? "width" : "height";
+        return $"{property}: {currentSize}%;";
+    }
+
+    private void HandleMouseDown(MouseEventArgs e)
+    {
+        // Note: Full drag implementation would require JS interop
+        // This is a simplified version for demo purposes
+    }
+}

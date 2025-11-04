@@ -1,0 +1,85 @@
+@namespace BarkUI.Components
+
+<div class="bark-popover__container" @attributes="AdditionalAttributes">
+    <div class="bark-popover__trigger" @onclick="Toggle">
+        @TriggerContent
+    </div>
+    @if (isOpen)
+    {
+        <div class="@GetClasses()">
+            @if (!string.IsNullOrEmpty(Title))
+            {
+                <div class="bark-popover__header">
+                    <h3 class="bark-popover__title">@Title</h3>
+                    @if (Dismissible)
+                    {
+                        <button class="bark-popover__close" @onclick="Close" aria-label="Close">✕</button>
+                    }
+                </div>
+            }
+            <div class="bark-popover__content">
+                @ChildContent
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? TriggerContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string Placement { get; set; } = "top";
+
+    [Parameter]
+    public bool IsOpen { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsOpenChanged { get; set; }
+
+    [Parameter]
+    public bool Dismissible { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool isOpen;
+
+    protected override void OnParametersSet()
+    {
+        isOpen = IsOpen;
+    }
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-popover" };
+        classes.Add($"bark-popover--{Placement}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private async Task Toggle()
+    {
+        isOpen = !isOpen;
+        IsOpen = isOpen;
+        await IsOpenChanged.InvokeAsync(isOpen);
+    }
+
+    private async Task Close()
+    {
+        isOpen = false;
+        IsOpen = false;
+        await IsOpenChanged.InvokeAsync(false);
+    }
+}

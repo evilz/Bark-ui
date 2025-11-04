@@ -1,0 +1,24 @@
+.bark-menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    color: var(--fg-default);
+    background-color: transparent;
+    border: none;
+    border-radius: var(--radii-l1, 0.25rem);
+    cursor: pointer;
+    transition: background-color 0.15s;
+    text-align: left;
+    font-family: inherit;
+}
+
+.bark-menu-item:hover {
+    background-color: var(--bg-subtle);
+}
+
+.bark-menu-item:focus-visible {
+    outline: 2px solid var(--color-palette-default);
+    outline-offset: -2px;
+}

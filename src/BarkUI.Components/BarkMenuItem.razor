@@ -1,0 +1,28 @@
+@namespace BarkUI.Components
+
+<button class="bark-menu-item" role="menuitem" @onclick="HandleClick" @attributes="AdditionalAttributes">
+    @ChildContent
+</button>
+
+@code {
+    [CascadingParameter]
+    private BarkMenu? Parent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private async Task HandleClick()
+    {
+        await OnClick.InvokeAsync();
+        if (Parent != null)
+        {
+            await Parent.Close();
+        }
+    }
+}
