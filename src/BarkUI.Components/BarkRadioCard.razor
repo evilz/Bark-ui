@@ -1,0 +1,54 @@
+@namespace BarkUI.Components
+
+<label class="@GetRadioCardClasses()">
+    <input 
+        type="radio"
+        class="bark-radio-card__input"
+        value="@Value"
+        checked="@IsChecked"
+        @onchange="HandleChange" />
+    <div class="bark-radio-card__content">
+        @ChildContent
+    </div>
+</label>
+
+@code {
+    [CascadingParameter]
+    public BarkRadioCardGroup? RadioCardGroup { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool IsChecked => RadioCardGroup?.Value == Value;
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        if (RadioCardGroup != null && Value != null)
+        {
+            await RadioCardGroup.HandleCardChange(Value);
+        }
+    }
+
+    private string GetRadioCardClasses()
+    {
+        var classes = new List<string> { "bark-radio-card" };
+        
+        if (IsChecked)
+        {
+            classes.Add("bark-radio-card--checked");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

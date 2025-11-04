@@ -1,0 +1,100 @@
+@namespace BarkUI.Components
+
+<div class="bark-select-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-select-label" for="@Id">@Label</label>
+    }
+    <div class="bark-select-container">
+        <select 
+            id="@Id"
+            class="@GetSelectClasses()" 
+            disabled="@Disabled"
+            value="@Value"
+            @onchange="HandleChange"
+            @attributes="AdditionalAttributes">
+            @if (!string.IsNullOrEmpty(Placeholder))
+            {
+                <option value="" disabled selected>@Placeholder</option>
+            }
+            @ChildContent
+        </select>
+        <span class="bark-select-icon">▼</span>
+    </div>
+    @if (!string.IsNullOrEmpty(HelperText))
+    {
+        <span class="bark-select-helper">@HelperText</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public bool HasError { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (string.IsNullOrEmpty(Id))
+        {
+            Id = $"bark-select-{Guid.NewGuid()}";
+        }
+    }
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        Value = e.Value?.ToString();
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private string GetSelectClasses()
+    {
+        var classes = new List<string> { "bark-select" };
+        classes.Add($"bark-select--{Size}");
+        
+        if (HasError)
+        {
+            classes.Add("bark-select--error");
+        }
+        
+        if (Disabled)
+        {
+            classes.Add("bark-select--disabled");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

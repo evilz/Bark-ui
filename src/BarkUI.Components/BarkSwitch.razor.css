@@ -1,0 +1,102 @@
+.bark-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.bark-switch--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.bark-switch__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.bark-switch__control {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: var(--bg-muted);
+    border: 2px solid var(--border-default);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bark-switch--sm .bark-switch__control {
+    width: 2rem;
+    height: 1.25rem;
+}
+
+.bark-switch--md .bark-switch__control {
+    width: 2.75rem;
+    height: 1.5rem;
+}
+
+.bark-switch--lg .bark-switch__control {
+    width: 3.5rem;
+    height: 2rem;
+}
+
+.bark-switch__thumb {
+    display: block;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bark-switch--sm .bark-switch__thumb {
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: translateX(0.125rem);
+}
+
+.bark-switch--md .bark-switch__thumb {
+    width: 1rem;
+    height: 1rem;
+    transform: translateX(0.125rem);
+}
+
+.bark-switch--lg .bark-switch__thumb {
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateX(0.125rem);
+}
+
+.bark-switch__input:checked + .bark-switch__control {
+    background-color: var(--color-palette-default);
+    border-color: var(--color-palette-default);
+}
+
+.bark-switch--sm .bark-switch__input:checked + .bark-switch__control .bark-switch__thumb {
+    transform: translateX(0.875rem);
+}
+
+.bark-switch--md .bark-switch__input:checked + .bark-switch__control .bark-switch__thumb {
+    transform: translateX(1.375rem);
+}
+
+.bark-switch--lg .bark-switch__input:checked + .bark-switch__control .bark-switch__thumb {
+    transform: translateX(1.875rem);
+}
+
+.bark-switch__input:focus + .bark-switch__control {
+    box-shadow: 0 0 0 2px var(--bg-default), 0 0 0 4px var(--color-palette-default);
+}
+
+.bark-switch:hover:not(.bark-switch--disabled) .bark-switch__control {
+    border-color: var(--color-palette-default);
+}
+
+.bark-switch__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}

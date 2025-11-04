@@ -1,0 +1,85 @@
+.bark-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.bark-radio--disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.bark-radio__input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.bark-radio__control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 2px solid var(--border-default);
+    border-radius: 50%;
+    background-color: var(--bg-default);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.bark-radio--sm .bark-radio__control {
+    width: 1rem;
+    height: 1rem;
+}
+
+.bark-radio--md .bark-radio__control {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.bark-radio--lg .bark-radio__control {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.bark-radio__input:checked + .bark-radio__control {
+    border-color: var(--color-palette-default);
+}
+
+.bark-radio__input:checked + .bark-radio__control::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--color-palette-default);
+}
+
+.bark-radio--sm .bark-radio__input:checked + .bark-radio__control::after {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+.bark-radio--md .bark-radio__input:checked + .bark-radio__control::after {
+    width: 0.625rem;
+    height: 0.625rem;
+}
+
+.bark-radio--lg .bark-radio__input:checked + .bark-radio__control::after {
+    width: 0.75rem;
+    height: 0.75rem;
+}
+
+.bark-radio__input:focus + .bark-radio__control {
+    box-shadow: 0 0 0 2px var(--bg-default), 0 0 0 4px var(--color-palette-default);
+}
+
+.bark-radio:hover:not(.bark-radio--disabled) .bark-radio__control {
+    border-color: var(--color-palette-default);
+}
+
+.bark-radio__label {
+    font-size: 0.875rem;
+    color: var(--fg-default);
+}

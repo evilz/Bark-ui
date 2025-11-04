@@ -1,0 +1,51 @@
+.bark-rating-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-rating-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-rating {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.bark-rating__item {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(100%);
+    opacity: 0.4;
+}
+
+.bark-rating--sm .bark-rating__item {
+    font-size: 1rem;
+}
+
+.bark-rating--md .bark-rating__item {
+    font-size: 1.5rem;
+}
+
+.bark-rating--lg .bark-rating__item {
+    font-size: 2rem;
+}
+
+.bark-rating__item:hover:not(:disabled) {
+    transform: scale(1.1);
+}
+
+.bark-rating__item--filled {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.bark-rating--disabled .bark-rating__item {
+    cursor: not-allowed;
+}

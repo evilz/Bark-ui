@@ -1,0 +1,72 @@
+@namespace BarkUI.Components
+
+<label class="@GetSwitchClasses()">
+    @if (!string.IsNullOrEmpty(Label) && !LabelPosition.Equals("end", StringComparison.OrdinalIgnoreCase))
+    {
+        <span class="bark-switch__label">@Label</span>
+    }
+    <input 
+        type="checkbox"
+        class="bark-switch__input"
+        checked="@Checked"
+        disabled="@Disabled"
+        @onchange="HandleChange"
+        @attributes="AdditionalAttributes" />
+    <span class="bark-switch__control">
+        <span class="bark-switch__thumb"></span>
+    </span>
+    @if (!string.IsNullOrEmpty(Label) && LabelPosition.Equals("end", StringComparison.OrdinalIgnoreCase))
+    {
+        <span class="bark-switch__label">@Label</span>
+    }
+</label>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public bool Checked { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> CheckedChanged { get; set; }
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string LabelPosition { get; set; } = "start";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private async Task HandleChange(ChangeEventArgs e)
+    {
+        if (!Disabled)
+        {
+            Checked = e.Value as bool? ?? false;
+            await CheckedChanged.InvokeAsync(Checked);
+        }
+    }
+
+    private string GetSwitchClasses()
+    {
+        var classes = new List<string> { "bark-switch" };
+        classes.Add($"bark-switch--{Size}");
+        
+        if (Disabled)
+        {
+            classes.Add("bark-switch--disabled");
+        }
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

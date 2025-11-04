@@ -1,0 +1,25 @@
+.bark-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bark-radio-group__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--fg-default);
+}
+
+.bark-radio-group__items {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.bark-radio-group--vertical .bark-radio-group__items {
+    flex-direction: column;
+}
+
+.bark-radio-group--horizontal .bark-radio-group__items {
+    flex-direction: row;
+    flex-wrap: wrap;
+}

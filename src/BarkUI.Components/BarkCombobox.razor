@@ -1,0 +1,118 @@
+@namespace BarkUI.Components
+
+<div class="bark-combobox-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-combobox-label">@Label</label>
+    }
+    <div class="bark-combobox-container">
+        <input 
+            type="text"
+            class="bark-combobox-input"
+            placeholder="@Placeholder"
+            value="@inputValue"
+            disabled="@Disabled"
+            @oninput="HandleInput"
+            @onfocus="ShowDropdown"
+            @attributes="AdditionalAttributes" />
+        <button type="button" class="bark-combobox-toggle" @onclick="ToggleDropdown" disabled="@Disabled">▼</button>
+        @if (isOpen && filteredOptions.Any())
+        {
+            <div class="bark-combobox-dropdown">
+                @foreach (var option in filteredOptions)
+                {
+                    <div class="bark-combobox-option" @onclick="() => SelectOption(option)">
+                        @option
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    @if (!string.IsNullOrEmpty(HelperText))
+    {
+        <span class="bark-combobox-helper">@HelperText</span>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public List<string> Options { get; set; } = new();
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    [Parameter]
+    public string? HelperText { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string inputValue = string.Empty;
+    private bool isOpen = false;
+    private List<string> filteredOptions = new();
+
+    protected override void OnParametersSet()
+    {
+        inputValue = Value ?? string.Empty;
+        filteredOptions = Options;
+    }
+
+    private void HandleInput(ChangeEventArgs e)
+    {
+        inputValue = e.Value?.ToString() ?? string.Empty;
+        FilterOptions();
+        isOpen = true;
+    }
+
+    private void FilterOptions()
+    {
+        if (string.IsNullOrEmpty(inputValue))
+        {
+            filteredOptions = Options;
+        }
+        else
+        {
+            filteredOptions = Options
+                .Where(o => o.Contains(inputValue, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+    }
+
+    private async Task SelectOption(string option)
+    {
+        inputValue = option;
+        Value = option;
+        isOpen = false;
+        await ValueChanged.InvokeAsync(Value);
+    }
+
+    private void ShowDropdown()
+    {
+        if (!Disabled)
+        {
+            isOpen = true;
+            FilterOptions();
+        }
+    }
+
+    private void ToggleDropdown()
+    {
+        if (!Disabled)
+        {
+            isOpen = !isOpen;
+            FilterOptions();
+        }
+    }
+}

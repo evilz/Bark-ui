@@ -1,0 +1,54 @@
+@namespace BarkUI.Components
+
+<div class="bark-toggle-wrapper">
+    @if (!string.IsNullOrEmpty(Label))
+    {
+        <label class="bark-toggle-label">@Label</label>
+    }
+    <div class="@GetToggleGroupClasses()">
+        @ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public string? Label { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string Variant { get; set; } = "default";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    internal async Task HandleToggleChange(string value)
+    {
+        Value = value;
+        await ValueChanged.InvokeAsync(value);
+    }
+
+    private string GetToggleGroupClasses()
+    {
+        var classes = new List<string> { "bark-toggle-group" };
+        classes.Add($"bark-toggle-group--{Size}");
+        classes.Add($"bark-toggle-group--{Variant}");
+        
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+}

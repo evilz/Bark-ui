@@ -1,0 +1,28 @@
+.bark-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-right: 1px solid var(--border-default);
+    background-color: var(--bg-default);
+    color: var(--fg-default);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.bark-toggle:last-child {
+    border-right: none;
+}
+
+.bark-toggle:hover {
+    background-color: var(--bg-subtle);
+}
+
+.bark-toggle--active {
+    background-color: var(--bg-emphasized);
+    color: var(--color-palette-default);
+}
