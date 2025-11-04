@@ -241,6 +241,92 @@ Responsive container with max-width constraints.
 **Max Width:** sm, md, lg, xl, full
 **Features:** Centered content option
 
+#### Absolute Center
+Center content absolutely within a container.
+
+**Axes:** both, horizontal, vertical
+**Features:** Flexible positioning
+
+#### Group
+Layout component for arranging elements.
+
+**Orientation:** horizontal, vertical
+**Gap:** sm, md, lg
+**Features:** Wrap support, flexible alignment
+
+#### Scroll Area
+Scrollable container with custom scrollbar styling.
+
+**Direction:** vertical, horizontal, both
+**Features:** Custom scrollbar styling, max height control
+
+#### Splitter
+Split pane component for resizable layouts.
+
+**Orientation:** horizontal, vertical
+**Features:** Adjustable pane sizes, draggable divider
+
+### Navigation
+
+#### Link
+Styled hyperlink component.
+
+**Variants:** default, muted
+**Sizes:** sm, md, lg
+**Features:** Underline control, external link support
+
+#### Pagination
+Pagination controls for navigating pages.
+
+**Sizes:** sm, md, lg
+**Features:** Configurable visible pages, previous/next buttons
+
+#### Tabs
+Tab navigation for switching between content views.
+
+**Variants:** default, enclosed
+**Sizes:** sm, md, lg
+**Features:** Active tab tracking, multiple tabs support
+
+### Overlays
+
+#### Dialog
+Modal dialog component.
+
+**Sizes:** sm, md, lg, xl
+**Features:** Dismissible, footer support, overlay click handling
+
+#### Drawer
+Slide-out drawer/sidebar component.
+
+**Placement:** right, left, top, bottom
+**Sizes:** sm, md, lg
+**Features:** Dismissible, footer support, overlay click handling
+
+#### Hover Card
+Card that appears when hovering over trigger element.
+
+**Placement:** top, bottom, left, right
+**Features:** Configurable delay, rich content support
+
+#### Menu
+Dropdown menu component.
+
+**Placement:** bottom-start, bottom-end, top-start, top-end, left-start, right-start
+**Features:** Click to open, cascading value support
+
+#### Popover
+Popover component with title and dismissible option.
+
+**Placement:** top, bottom, left, right
+**Features:** Title support, dismissible close button
+
+#### Tooltip
+Simple tooltip component.
+
+**Placement:** top, bottom, left, right
+**Features:** Configurable delay, arrow indicator
+
 ## Getting Started
 
 ### Prerequisites
