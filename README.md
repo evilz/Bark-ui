@@ -1,21 +1,22 @@
 # Bark UI
 
-Beautifully designed Blazor components inspired by park-ui
+Beautifully designed Blazor components inspired by park-ui with Radix UI colors
 
-![Bark UI Demo](https://github.com/user-attachments/assets/b5d675ba-7350-4408-9842-0eee5ab7b79e)
+![Bark UI Demo](https://github.com/user-attachments/assets/c4927bad-256f-485f-996f-5be295d5a5ed)
 
 ## Overview
 
-Bark UI is a comprehensive .NET Blazor component library that provides customizable, accessible components with sensible defaults. Built with .NET 9.0, it gives developers complete control over how components are built and styled.
+Bark UI is a comprehensive .NET Blazor component library that provides customizable, accessible components with sensible defaults. Built with .NET 9.0 and using **Radix UI's scientifically designed color system**, it gives developers complete control over how components are built and styled.
 
 ## Features
 
-- 🎨 **Customizable** - Full control over component styling and behavior
+- 🎨 **Radix UI Colors** - Professional color system with optimal contrast and accessibility
+- 🎭 **Fully Themable** - Complete theming system with semantic tokens
 - 🚀 **Modern** - Built with .NET 9.0 and Blazor
 - 📦 **Component Library** - Rich set of UI components
 - 🎯 **Sensible Defaults** - Works great out of the box
 - 🔧 **Flexible** - Easy to customize and extend
-- 🎭 **Multiple Variants** - Different styles for different use cases
+- ♿ **Accessible** - WCAG AA compliant colors
 
 ## Components
 

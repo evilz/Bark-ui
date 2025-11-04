@@ -1,11 +1,20 @@
 # Bark UI Theming Guide
 
-Bark UI uses a comprehensive theming system inspired by park-ui that allows you to customize the appearance of all components by changing CSS custom properties (CSS variables).
+Bark UI uses a comprehensive theming system inspired by park-ui with **Radix UI Colors** that allows you to customize the appearance of all components by changing CSS custom properties (CSS variables).
+
+## Radix UI Colors
+
+All default theme colors are based on [Radix UI's color system](https://www.radix-ui.com/colors), which provides:
+- **Scientific design**: Colors designed for optimal readability and accessibility
+- **12-step scales**: Each color has 12 shades for different use cases
+- **Consistent contrast**: Guaranteed WCAG AA contrast ratios
+- **Beautiful palettes**: Professional, harmonious color combinations
 
 ## Table of Contents
 
 - [Quick Start](#quick-start)
 - [Semantic Tokens](#semantic-tokens)
+- [Radix UI Color Scales](#radix-ui-color-scales)
 - [Using Predefined Themes](#using-predefined-themes)
 - [Creating Custom Themes](#creating-custom-themes)
 - [Color Tokens](#color-tokens)
@@ -22,13 +31,13 @@ Add a `data-theme` attribute to your HTML element:
 <html lang="en" data-theme="blue">
 ```
 
-Available themes:
-- `neutral` (default)
-- `blue`
-- `green`
-- `purple`
-- `rose`
-- `slate`
+Available themes (all use Radix UI color scales):
+- `neutral` (default) - Radix UI Slate scale
+- `blue` - Radix UI Blue/Sky scales
+- `green` - Radix UI Green scale
+- `purple` - Radix UI Violet scale
+- `crimson` - Radix UI Crimson scale
+- `gray` - Radix UI Gray scale
 
 ### Create a Custom Theme
 
@@ -108,6 +117,60 @@ Special-purpose colors for common UI patterns.
 | `warning.fg`  | `--warning-fg`     | Text on warning background |
 | `info`        | `--info`           | Info state color           |
 | `info.fg`     | `--info-fg`        | Text on info background    |
+
+## Radix UI Color Scales
+
+Bark UI uses **Radix UI's color system** for all default theme colors. Radix UI provides scientifically designed color scales with optimal contrast and accessibility.
+
+### Why Radix UI Colors?
+
+- **Accessibility First**: All colors meet WCAG AA contrast requirements
+- **12-Step Scales**: Each color has 12 carefully calibrated shades
+- **Consistent System**: Predictable color behavior across all scales
+- **Beautiful Design**: Professional, harmonious color combinations
+- **Open Source**: Free to use, well-documented
+
+### Color Scale Mapping
+
+The default theme uses Radix UI's **Slate** scale:
+
+| Semantic Token | Radix Scale Step | Purpose |
+|---------------|------------------|---------|
+| `bg.canvas` | slate.1 | App background |
+| `bg.default` | slate.2 | Component background |
+| `bg.subtle` | slate.3 | Subtle background |
+| `bg.muted` | slate.4 | Muted background |
+| `bg.emphasized` | slate.5 | Emphasized background |
+| `border.default` | slate.6 | Default borders |
+| `border.muted` | slate.7 | Muted borders |
+| `border.outline` | slate.8 | Outline borders |
+| `fg.subtle` | slate.10 | Subtle text |
+| `fg.muted` | slate.11 | Muted text |
+| `fg.default` | slate.12 | Primary text |
+
+### Semantic Colors
+
+Semantic colors use dedicated Radix UI scales:
+
+- **Success**: Green scale (step 9)
+- **Error**: Red scale (step 9)
+- **Warning**: Amber scale (step 9)
+- **Info**: Blue scale (step 9)
+
+### Creating Themes with Radix Colors
+
+When creating custom themes, we recommend using Radix UI color scales:
+
+```css
+/* Custom theme with Radix UI Indigo scale */
+[data-theme="indigo"] {
+    --colors-color-palette-default: 62 99 221;    /* indigo.9 */
+    --colors-color-palette-emphasized: 54 79 199; /* indigo.10 */
+    --colors-color-palette-fg: 255 255 255;
+}
+```
+
+Reference: [Radix UI Colors Documentation](https://www.radix-ui.com/colors)
 
 ## Using Predefined Themes
 
