@@ -6,7 +6,8 @@
     border-radius: 50%;
     border-style: solid;
     border-top-color: transparent;
-    animation: bark-spin 0.8s linear infinite;
+    border-right-color: transparent;
+    animation: bark-spin 0.6s linear infinite;
 }
 
 .bark-spinner--sm .bark-spinner-circle {
@@ -18,28 +19,31 @@
 .bark-spinner--md .bark-spinner-circle {
     width: 1.5rem;
     height: 1.5rem;
-    border-width: 3px;
+    border-width: 2px;
 }
 
 .bark-spinner--lg .bark-spinner-circle {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-width: 4px;
+    width: 2rem;
+    height: 2rem;
+    border-width: 3px;
 }
 
 .bark-spinner--primary .bark-spinner-circle {
-    border-color: #3b82f6;
+    border-color: var(--color-accent-default, #171717);
     border-top-color: transparent;
+    border-right-color: transparent;
 }
 
 .bark-spinner--secondary .bark-spinner-circle {
-    border-color: #6b7280;
+    border-color: var(--color-fg-muted, #737373);
     border-top-color: transparent;
+    border-right-color: transparent;
 }
 
 .bark-spinner--success .bark-spinner-circle {
-    border-color: #10b981;
+    border-color: #16a34a;
     border-top-color: transparent;
+    border-right-color: transparent;
 }
 
 @keyframes bark-spin {

@@ -3,99 +3,106 @@
     align-items: center;
     justify-content: center;
     font-weight: 500;
-    border-radius: 9999px;
+    border-radius: var(--radius-sm, 0.375rem);
     font-family: inherit;
+    white-space: nowrap;
 }
 
 .bark-badge--sm {
     padding: 0.125rem 0.5rem;
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     line-height: 1rem;
+    height: 1.25rem;
 }
 
 .bark-badge--md {
     padding: 0.25rem 0.625rem;
     font-size: 0.75rem;
-    line-height: 1rem;
+    line-height: 1.125rem;
+    height: 1.5rem;
 }
 
 .bark-badge--lg {
     padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     line-height: 1.25rem;
+    height: 1.75rem;
 }
 
+/* Solid Variant */
 .bark-badge--solid.bark-badge--primary {
-    background-color: #3b82f6;
-    color: white;
+    background-color: var(--color-accent-default, #171717);
+    color: var(--color-accent-fg, #ffffff);
 }
 
 .bark-badge--solid.bark-badge--secondary {
-    background-color: #6b7280;
-    color: white;
+    background-color: var(--color-bg-emphasized, #e5e5e5);
+    color: var(--color-fg-default, #0a0a0a);
 }
 
 .bark-badge--solid.bark-badge--success {
-    background-color: #10b981;
-    color: white;
+    background-color: #16a34a;
+    color: #ffffff;
 }
 
 .bark-badge--solid.bark-badge--danger {
-    background-color: #ef4444;
-    color: white;
+    background-color: #dc2626;
+    color: #ffffff;
 }
 
 .bark-badge--solid.bark-badge--warning {
-    background-color: #f59e0b;
-    color: white;
+    background-color: #ea580c;
+    color: #ffffff;
 }
 
 .bark-badge--solid.bark-badge--info {
-    background-color: #06b6d4;
-    color: white;
+    background-color: #0891b2;
+    color: #ffffff;
 }
 
+/* Outline Variant */
 .bark-badge--outline {
     background-color: transparent;
     border: 1px solid;
 }
 
 .bark-badge--outline.bark-badge--primary {
-    border-color: #3b82f6;
-    color: #3b82f6;
+    border-color: var(--color-border-default, #e5e5e5);
+    color: var(--color-fg-default, #0a0a0a);
 }
 
 .bark-badge--outline.bark-badge--secondary {
-    border-color: #6b7280;
-    color: #6b7280;
+    border-color: var(--color-border-muted, #d4d4d4);
+    color: var(--color-fg-muted, #737373);
 }
 
 .bark-badge--outline.bark-badge--success {
-    border-color: #10b981;
-    color: #10b981;
+    border-color: #16a34a;
+    color: #16a34a;
 }
 
 .bark-badge--outline.bark-badge--danger {
-    border-color: #ef4444;
-    color: #ef4444;
+    border-color: #dc2626;
+    color: #dc2626;
 }
 
+/* Subtle Variant */
 .bark-badge--subtle.bark-badge--primary {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background-color: var(--color-bg-muted, #f5f5f5);
+    color: var(--color-fg-default, #0a0a0a);
 }
 
 .bark-badge--subtle.bark-badge--secondary {
-    background-color: rgba(107, 114, 128, 0.1);
-    color: #6b7280;
+    background-color: var(--color-bg-subtle, #f9f9f9);
+    color: var(--color-fg-muted, #737373);
 }
 
 .bark-badge--subtle.bark-badge--success {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background-color: #dcfce7;
+    color: #15803d;
 }
 
 .bark-badge--subtle.bark-badge--danger {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
+    background-color: #fee2e2;
+    color: #b91c1c;
 }

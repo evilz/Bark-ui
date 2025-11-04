@@ -1,66 +1,78 @@
 .bark-input-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 0.375rem;
+    gap: 0.5rem;
 }
 
 .bark-input-label {
     font-size: 0.875rem;
     font-weight: 500;
-    color: #374151;
+    color: var(--color-fg-default, #0a0a0a);
 }
 
 .bark-input {
     width: 100%;
-    border: 1px solid #d1d5db;
-    border-radius: 6px;
+    border: 1px solid var(--color-border-default, #e5e5e5);
+    border-radius: var(--radius-md, 0.5rem);
     font-family: inherit;
-    transition: all 0.2s ease-in-out;
-    background-color: white;
-    color: #111827;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--color-bg-default, #ffffff);
+    color: var(--color-fg-default, #0a0a0a);
+    outline: none;
+}
+
+.bark-input::placeholder {
+    color: var(--color-fg-subtle, #a3a3a3);
+}
+
+.bark-input:hover:not(:disabled) {
+    border-color: var(--color-border-muted, #d4d4d4);
 }
 
 .bark-input:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--color-accent-default, #171717);
+    box-shadow: 0 0 0 1px var(--color-accent-default, #171717);
 }
 
 .bark-input--sm {
-    padding: 0.375rem 0.75rem;
-    font-size: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8125rem;
+    height: 2rem;
 }
 
 .bark-input--md {
-    padding: 0.5rem 0.875rem;
+    padding: 0.625rem 0.875rem;
     font-size: 0.875rem;
+    height: 2.5rem;
 }
 
 .bark-input--lg {
-    padding: 0.625rem 1rem;
+    padding: 0.75rem 1rem;
     font-size: 1rem;
+    height: 3rem;
 }
 
 .bark-input--error {
-    border-color: #ef4444;
+    border-color: #dc2626;
 }
 
 .bark-input--error:focus {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+    border-color: #dc2626;
+    box-shadow: 0 0 0 1px #dc2626;
 }
 
 .bark-input--disabled {
-    background-color: #f3f4f6;
+    background-color: var(--color-bg-disabled, #f5f5f5);
+    color: var(--color-fg-disabled, #d4d4d4);
     cursor: not-allowed;
-    opacity: 0.6;
+    opacity: 1;
 }
 
 .bark-input-helper {
-    font-size: 0.75rem;
-    color: #6b7280;
+    font-size: 0.8125rem;
+    color: var(--color-fg-muted, #737373);
 }
 
 .bark-input--error ~ .bark-input-helper {
-    color: #ef4444;
+    color: #dc2626;
 }
