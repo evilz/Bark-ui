@@ -56,6 +56,58 @@
                                 <BarkButton Disabled="true">Disabled</BarkButton>
                             </div>
                         </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Clipboard Button</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton OnClick="@(() => CopyToClipboard("Hello Bark UI!"))">
+                                    📋 Copy to Clipboard
+                                </BarkButton>
+                                <BarkButton Variant="outline" OnClick="@(() => CopyToClipboard("npm install bark-ui"))">
+                                    📋 Copy Command
+                                </BarkButton>
+                                <BarkButton Variant="ghost" Size="sm" OnClick="@(() => CopyToClipboard("Code snippet"))">
+                                    📋 Copy
+                                </BarkButton>
+                                @if (!string.IsNullOrEmpty(copiedText))
+                                {
+                                    <span style="color: #10b981; font-size: 0.875rem;">✓ Copied: @copiedText</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Close Button</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton Variant="ghost" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem;">
+                                    ✕
+                                </BarkButton>
+                                <BarkButton Variant="ghost" Size="md" style="padding: 0.5rem; width: 2.5rem; height: 2.5rem;">
+                                    ✕
+                                </BarkButton>
+                                <BarkButton Variant="outline" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem; border-radius: 50%;">
+                                    ✕
+                                </BarkButton>
+                                <BarkButton ColorScheme="danger" Variant="ghost" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem;">
+                                    ✕
+                                </BarkButton>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Icon Button</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton Size="sm">🏠 Home</BarkButton>
+                                <BarkButton Size="md">⚙️ Settings</BarkButton>
+                                <BarkButton Size="lg">💾 Save</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="primary">🔍 Search</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="success">✓ Approve</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="danger">🗑️ Delete</BarkButton>
+                                <BarkButton Variant="ghost">📥 Download</BarkButton>
+                                <BarkButton Variant="ghost">📤 Upload</BarkButton>
+                                <BarkButton Variant="ghost">🔔 Notifications</BarkButton>
+                            </div>
+                        </div>
                     </div>
                 </BarkCard>
             </section>
@@ -183,3 +235,17 @@
         </div>
     </div>
 </BarkContainer>
+
+@code {
+    private string copiedText = string.Empty;
+
+    private async Task CopyToClipboard(string text)
+    {
+        copiedText = text;
+        // In a real application, you would use JavaScript interop to copy to clipboard
+        // For demo purposes, we just show the text was "copied"
+        await Task.Delay(2000);
+        copiedText = string.Empty;
+        StateHasChanged();
+    }
+}
