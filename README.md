@@ -218,7 +218,7 @@ Bark-ui/
 │       └── Components/
 │           └── Pages/
 │               └── Home.razor
-├── BarkUI.sln
+├── BarkUI.slnx
 └── README.md
 ```
 

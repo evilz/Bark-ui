@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src\BarkUI.Components\BarkUI.Components.csproj" />
+    <Project Path="src\BarkUI.Demo\BarkUI.Demo.csproj" />
+  </Folder>
+  <Properties Name="Configuration">
+    <Property Name="Debug" />
+    <Property Name="Release" />
+  </Properties>
+</Solution>
