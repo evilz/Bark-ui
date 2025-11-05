@@ -5,7 +5,7 @@
 <BarkContainer MaxWidth="xl">
     <div style="padding: 2rem 0;">
         <div style="margin-bottom: 3rem;">
-            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Table</h1>
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Table</h1>
             <p style="font-size: 1.125rem; color: #6b7280;">
                 Data table with styling options.
             </p>
@@ -13,12 +13,76 @@
 
         <div style="display: flex; flex-direction: column; gap: 3rem;">
 
-            <!-- Basic Example Section -->
+            <!-- Basic Table Section -->
             <section>
-                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Example</h2>
-                <BarkCard>
-                    <p>Component demonstration content goes here.</p>
-                </BarkCard>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Table</h2>
+                <BarkTable Striped="true" Hoverable="true">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>john@example.com</td>
+                            <td>Developer</td>
+                            <td><BarkBadge ColorScheme="success" Size="sm">Active</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>jane@example.com</td>
+                            <td>Designer</td>
+                            <td><BarkBadge ColorScheme="success" Size="sm">Active</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Bob Wilson</td>
+                            <td>bob@example.com</td>
+                            <td>Manager</td>
+                            <td><BarkBadge ColorScheme="warning" Size="sm">Away</BarkBadge></td>
+                        </tr>
+                        <tr>
+                            <td>Alice Brown</td>
+                            <td>alice@example.com</td>
+                            <td>Engineer</td>
+                            <td><BarkBadge ColorScheme="danger" Size="sm">Offline</BarkBadge></td>
+                        </tr>
+                    </tbody>
+                </BarkTable>
+            </section>
+
+            <!-- Simple Variant Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Simple Variant</h2>
+                <BarkTable Variant="simple">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Widget A</td>
+                            <td>$10.00</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Widget B</td>
+                            <td>$15.00</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Widget C</td>
+                            <td>$20.00</td>
+                            <td>25</td>
+                        </tr>
+                    </tbody>
+                </BarkTable>
             </section>
 
         </div>
