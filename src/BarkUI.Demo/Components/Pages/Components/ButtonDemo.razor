@@ -1,0 +1,106 @@
+@page "/components/button"
+
+<PageTitle>Button - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Button</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                A versatile button component with multiple variants and customization options.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Variants Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Variants</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        <BarkButton>Solid Button</BarkButton>
+                        <BarkButton Variant="outline">Outline Button</BarkButton>
+                        <BarkButton Variant="ghost">Ghost Button</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Color Schemes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Color Schemes</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Solid</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <BarkButton ColorScheme="primary">Primary</BarkButton>
+                                <BarkButton ColorScheme="secondary">Secondary</BarkButton>
+                                <BarkButton ColorScheme="success">Success</BarkButton>
+                                <BarkButton ColorScheme="danger">Danger</BarkButton>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Outline</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <BarkButton Variant="outline" ColorScheme="primary">Primary</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="secondary">Secondary</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="success">Success</BarkButton>
+                                <BarkButton Variant="outline" ColorScheme="danger">Danger</BarkButton>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Ghost</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <BarkButton Variant="ghost" ColorScheme="primary">Primary</BarkButton>
+                                <BarkButton Variant="ghost" ColorScheme="secondary">Secondary</BarkButton>
+                                <BarkButton Variant="ghost" ColorScheme="success">Success</BarkButton>
+                                <BarkButton Variant="ghost" ColorScheme="danger">Danger</BarkButton>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Sizes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Sizes</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                        <BarkButton Size="sm">Small</BarkButton>
+                        <BarkButton Size="md">Medium</BarkButton>
+                        <BarkButton Size="lg">Large</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- States Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">States</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        <BarkButton>Active</BarkButton>
+                        <BarkButton Disabled="true">Disabled</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- With Icons Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">With Icons</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                        <BarkButton>🏠 Home</BarkButton>
+                        <BarkButton Variant="outline">⚙️ Settings</BarkButton>
+                        <BarkButton Variant="ghost">💾 Save</BarkButton>
+                        <BarkButton ColorScheme="success">✓ Approve</BarkButton>
+                        <BarkButton ColorScheme="danger">🗑️ Delete</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

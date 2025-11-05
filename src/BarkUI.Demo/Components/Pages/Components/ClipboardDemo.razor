@@ -1,0 +1,88 @@
+@page "/components/clipboard"
+
+<PageTitle>Clipboard - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Clipboard Button</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Button for copying text to clipboard (simulated for demo purposes).
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Examples Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Examples</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                        <BarkButton OnClick="@(() => CopyToClipboard("Hello Bark UI!"))">
+                            📋 Copy to Clipboard
+                        </BarkButton>
+                        <BarkButton Variant="outline" OnClick="@(() => CopyToClipboard("npm install bark-ui"))">
+                            📋 Copy Command
+                        </BarkButton>
+                        <BarkButton Variant="ghost" Size="sm" OnClick="@(() => CopyToClipboard("Code snippet"))">
+                            📋 Copy
+                        </BarkButton>
+                        @if (!string.IsNullOrEmpty(copiedText))
+                        {
+                            <span style="color: #10b981; font-size: 0.875rem;">✓ Copied: @copiedText</span>
+                        }
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Different Styles Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Different Styles</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Solid</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <BarkButton ColorScheme="primary" OnClick="@(() => CopyToClipboard("Primary"))">
+                                    📋 Copy
+                                </BarkButton>
+                                <BarkButton ColorScheme="success" OnClick="@(() => CopyToClipboard("Success"))">
+                                    📋 Copy
+                                </BarkButton>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Icon Only</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+                                <BarkButton Variant="ghost" Size="sm" style="padding: 0.5rem;" OnClick="@(() => CopyToClipboard("Icon 1"))">
+                                    📋
+                                </BarkButton>
+                                <BarkButton Variant="outline" Size="sm" style="padding: 0.5rem;" OnClick="@(() => CopyToClipboard("Icon 2"))">
+                                    📋
+                                </BarkButton>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+    private const int CopyFeedbackDurationMs = 2000;
+    private string copiedText = string.Empty;
+
+    /// <summary>
+    /// Simulates copy-to-clipboard functionality for demo purposes.
+    /// In a real application, you would use JavaScript interop to actually copy to clipboard.
+    /// </summary>
+    private async Task CopyToClipboard(string text)
+    {
+        copiedText = text;
+        await Task.Delay(CopyFeedbackDurationMs);
+        copiedText = string.Empty;
+        StateHasChanged();
+    }
+}

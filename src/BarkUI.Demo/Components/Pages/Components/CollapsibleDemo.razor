@@ -1,0 +1,45 @@
+@page "/components/collapsible"
+
+<PageTitle>Collapsible - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Collapsible</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Toggle content visibility with a customizable trigger.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Example Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Example</h2>
+                <BarkCollapsible @bind-IsOpen="@collapsibleOpen">
+                    <TriggerContent>
+                        <span style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                            <span style="font-weight: 600;">📦 Click to toggle content</span>
+                            <span style="font-size: 0.75rem;">@(collapsibleOpen ? "▲" : "▼")</span>
+                        </span>
+                    </TriggerContent>
+                    <ChildContent>
+                        <p style="margin-bottom: 0.5rem;">
+                            This is collapsible content that can be shown or hidden.
+                        </p>
+                        <p>
+                            Collapsible components are great for FAQ sections, disclosure panels, 
+                            and any content that should be hidden by default.
+                        </p>
+                    </ChildContent>
+                </BarkCollapsible>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+
+    private bool collapsibleOpen = false;
+}

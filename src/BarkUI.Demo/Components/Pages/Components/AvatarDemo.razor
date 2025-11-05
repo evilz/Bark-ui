@@ -1,0 +1,57 @@
+@page "/components/avatar"
+
+<PageTitle>Avatar - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Avatar</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Display user profile images or initials.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Sizes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Sizes</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <BarkAvatar Size="sm" Name="John Doe" />
+                        <BarkAvatar Size="md" Name="Jane Smith" />
+                        <BarkAvatar Size="lg" Name="Bob Wilson" />
+                        <BarkAvatar Size="xl" Name="Alice Brown" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Shapes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Shapes</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <BarkAvatar Shape="circle" Name="Circle Avatar" />
+                        <BarkAvatar Shape="square" Name="Square Avatar" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- With Images Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">With Images</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <BarkAvatar Src="https://i.pravatar.cc/150?img=1" Alt="User 1" />
+                        <BarkAvatar Src="https://i.pravatar.cc/150?img=2" Alt="User 2" />
+                        <BarkAvatar Src="https://i.pravatar.cc/150?img=3" Alt="User 3" />
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}
