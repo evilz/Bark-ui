@@ -1,0 +1,114 @@
+.bark-drawer__overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.bark-drawer {
+    position: fixed;
+    background-color: var(--bg-default);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+}
+
+.bark-drawer--right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.bark-drawer--left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.bark-drawer--top {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.bark-drawer--bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bark-drawer--right.bark-drawer--sm,
+.bark-drawer--left.bark-drawer--sm {
+    width: 320px;
+}
+
+.bark-drawer--right.bark-drawer--md,
+.bark-drawer--left.bark-drawer--md {
+    width: 400px;
+}
+
+.bark-drawer--right.bark-drawer--lg,
+.bark-drawer--left.bark-drawer--lg {
+    width: 600px;
+}
+
+.bark-drawer--top.bark-drawer--sm,
+.bark-drawer--bottom.bark-drawer--sm {
+    height: 320px;
+}
+
+.bark-drawer--top.bark-drawer--md,
+.bark-drawer--bottom.bark-drawer--md {
+    height: 400px;
+}
+
+.bark-drawer--top.bark-drawer--lg,
+.bark-drawer--bottom.bark-drawer--lg {
+    height: 600px;
+}
+
+.bark-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-default);
+}
+
+.bark-drawer__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--fg-default);
+}
+
+.bark-drawer__close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--fg-muted);
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.bark-drawer__close:hover {
+    color: var(--fg-default);
+}
+
+.bark-drawer__content {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.bark-drawer__footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-default);
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}

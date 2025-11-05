@@ -1,0 +1,45 @@
+.bark-link {
+    color: var(--color-palette-default);
+    text-decoration: underline;
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+}
+
+.bark-link:hover {
+    color: var(--color-palette-emphasized);
+}
+
+.bark-link:focus-visible {
+    outline: 2px solid var(--color-palette-default);
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.bark-link--no-underline {
+    text-decoration: none;
+}
+
+.bark-link--sm {
+    font-size: 0.875rem;
+}
+
+.bark-link--md {
+    font-size: 1rem;
+}
+
+.bark-link--lg {
+    font-size: 1.125rem;
+}
+
+.bark-link--default {
+    color: var(--color-palette-default);
+}
+
+.bark-link--muted {
+    color: var(--fg-muted);
+}
+
+.bark-link--muted:hover {
+    color: var(--fg-default);
+}

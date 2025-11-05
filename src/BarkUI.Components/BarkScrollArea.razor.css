@@ -1,0 +1,39 @@
+.bark-scroll-area {
+    overflow: auto;
+    border-radius: var(--radii-l2, 0.375rem);
+    padding: 0.75rem;
+}
+
+.bark-scroll-area--vertical {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.bark-scroll-area--horizontal {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.bark-scroll-area--both {
+    overflow: auto;
+}
+
+/* Custom scrollbar styling */
+.bark-scroll-area::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.bark-scroll-area::-webkit-scrollbar-track {
+    background: var(--bg-subtle);
+    border-radius: 4px;
+}
+
+.bark-scroll-area::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+    border-radius: 4px;
+}
+
+.bark-scroll-area::-webkit-scrollbar-thumb:hover {
+    background: var(--border-emphasized);
+}

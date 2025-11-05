@@ -1,0 +1,94 @@
+@namespace BarkUI.Components
+
+<div class="@GetClasses()" @attributes="AdditionalAttributes">
+    <div class="bark-tabs__list" role="tablist">
+        @foreach (var tab in tabs)
+        {
+            <button class="@GetTabButtonClasses(tab)"
+                    role="tab"
+                    aria-selected="@(tab == ActiveTab)"
+                    @onclick="@(() => SelectTab(tab))">
+                @tab.Title
+            </button>
+        }
+    </div>
+    <div class="bark-tabs__panel" role="tabpanel">
+        @ActiveTab?.ChildContent
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Variant { get; set; } = "default";
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public string? ActiveTabId { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ActiveTabIdChanged { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private List<BarkTab> tabs = new();
+    private BarkTab? ActiveTab { get; set; }
+
+    internal void AddTab(BarkTab tab)
+    {
+        tabs.Add(tab);
+        if (ActiveTab == null || (ActiveTabId != null && tab.Id == ActiveTabId))
+        {
+            ActiveTab = tab;
+        }
+        StateHasChanged();
+    }
+
+    internal void RemoveTab(BarkTab tab)
+    {
+        tabs.Remove(tab);
+        if (ActiveTab == tab && tabs.Any())
+        {
+            ActiveTab = tabs.First();
+        }
+        StateHasChanged();
+    }
+
+    private async Task SelectTab(BarkTab tab)
+    {
+        ActiveTab = tab;
+        if (ActiveTabIdChanged.HasDelegate && tab.Id != null)
+        {
+            await ActiveTabIdChanged.InvokeAsync(tab.Id);
+        }
+    }
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-tabs" };
+        classes.Add($"bark-tabs--{Variant}");
+        classes.Add($"bark-tabs--{Size}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private string GetTabButtonClasses(BarkTab tab)
+    {
+        var classes = new List<string> { "bark-tabs__button" };
+        if (tab == ActiveTab)
+        {
+            classes.Add("bark-tabs__button--active");
+        }
+        return string.Join(" ", classes);
+    }
+}

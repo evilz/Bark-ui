@@ -1,0 +1,71 @@
+@namespace BarkUI.Components
+
+<div class="bark-hover-card__container" @onmouseenter="Show" @onmouseleave="Hide" @attributes="AdditionalAttributes">
+    <div class="bark-hover-card__trigger">
+        @TriggerContent
+    </div>
+    @if (isVisible)
+    {
+        <div class="@GetClasses()">
+            @ChildContent
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? TriggerContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Placement { get; set; } = "top";
+
+    [Parameter]
+    public int DelayMs { get; set; } = 200;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private bool isVisible = false;
+    private System.Threading.Timer? timer;
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-hover-card" };
+        classes.Add($"bark-hover-card--{Placement}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private void Show()
+    {
+        timer?.Dispose();
+        timer = new System.Threading.Timer(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                isVisible = true;
+                StateHasChanged();
+            });
+        }, null, DelayMs, System.Threading.Timeout.Infinite);
+    }
+
+    private void Hide()
+    {
+        timer?.Dispose();
+        isVisible = false;
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}

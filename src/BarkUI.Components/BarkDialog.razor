@@ -1,0 +1,84 @@
+@namespace BarkUI.Components
+
+@if (IsOpen)
+{
+    <div class="bark-dialog__overlay" @onclick="HandleOverlayClick">
+        <div class="@GetClasses()" role="dialog" aria-modal="true" @onclick:stopPropagation="true" @attributes="AdditionalAttributes">
+            @if (!string.IsNullOrEmpty(Title))
+            {
+                <div class="bark-dialog__header">
+                    <h2 class="bark-dialog__title">@Title</h2>
+                    @if (Dismissible)
+                    {
+                        <button class="bark-dialog__close" @onclick="Close" aria-label="Close">✕</button>
+                    }
+                </div>
+            }
+            <div class="bark-dialog__content">
+                @ChildContent
+            </div>
+            @if (FooterContent != null)
+            {
+                <div class="bark-dialog__footer">
+                    @FooterContent
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment? FooterContent { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public bool IsOpen { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsOpenChanged { get; set; }
+
+    [Parameter]
+    public string Size { get; set; } = "md";
+
+    [Parameter]
+    public bool Dismissible { get; set; } = true;
+
+    [Parameter]
+    public bool CloseOnOverlayClick { get; set; } = true;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-dialog" };
+        classes.Add($"bark-dialog--{Size}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    private async Task Close()
+    {
+        IsOpen = false;
+        await IsOpenChanged.InvokeAsync(IsOpen);
+    }
+
+    private async Task HandleOverlayClick()
+    {
+        if (CloseOnOverlayClick)
+        {
+            await Close();
+        }
+    }
+}

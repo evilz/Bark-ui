@@ -1043,3 +1043,379 @@ A searchable dropdown component with filtering.
 ```
 
 ---
+
+## BarkAbsoluteCenter
+
+Center content absolutely within a container.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Content to center |
+| Axis | string | "both" | Center axis: "both", "horizontal", or "vertical" |
+
+### Usage
+
+```razor
+<div style="position: relative; height: 200px;">
+    <BarkAbsoluteCenter Axis="both">
+        <p>Centered content</p>
+    </BarkAbsoluteCenter>
+</div>
+```
+
+---
+
+## BarkGroup
+
+Layout component for grouping and arranging elements.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Elements to group |
+| Orientation | string | "horizontal" | Layout direction: "horizontal" or "vertical" |
+| Gap | string | "md" | Gap between items: "sm", "md", or "lg" |
+| Align | string | "start" | Alignment: "start", "center", or "end" |
+| Wrap | bool | false | Whether to wrap items |
+
+### Usage
+
+```razor
+<BarkGroup Orientation="horizontal" Gap="md">
+    <BarkButton>Button 1</BarkButton>
+    <BarkButton>Button 2</BarkButton>
+    <BarkButton>Button 3</BarkButton>
+</BarkGroup>
+```
+
+---
+
+## BarkScrollArea
+
+Scrollable container with custom scrollbar styling.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Scrollable content |
+| MaxHeight | string | "400px" | Maximum height of scroll area |
+| ScrollDirection | string | "vertical" | Scroll direction: "vertical", "horizontal", or "both" |
+
+### Usage
+
+```razor
+<BarkScrollArea MaxHeight="200px" ScrollDirection="vertical">
+    <!-- Long content here -->
+</BarkScrollArea>
+```
+
+---
+
+## BarkSplitter
+
+Split pane component for resizable layouts.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| FirstPane | RenderFragment? | null | Content for first pane |
+| SecondPane | RenderFragment? | null | Content for second pane |
+| Orientation | string | "horizontal" | Split direction: "horizontal" or "vertical" |
+| DefaultSize | int | 50 | Default size percentage of first pane |
+
+### Usage
+
+```razor
+<BarkSplitter Orientation="horizontal" DefaultSize="50">
+    <FirstPane>
+        <div>Left content</div>
+    </FirstPane>
+    <SecondPane>
+        <div>Right content</div>
+    </SecondPane>
+</BarkSplitter>
+```
+
+---
+
+## BarkLink
+
+Styled hyperlink component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Link text |
+| Href | string? | null | Link URL |
+| Variant | string | "default" | Link style: "default" or "muted" |
+| Size | string | "md" | Link size: "sm", "md", or "lg" |
+| Target | string? | null | HTML target attribute |
+| Underline | bool | true | Whether to underline the link |
+
+### Usage
+
+```razor
+<BarkLink Href="https://example.com" Target="_blank">Visit Example</BarkLink>
+```
+
+---
+
+## BarkPagination
+
+Pagination controls for navigating pages.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| CurrentPage | int | 1 | Currently active page |
+| CurrentPageChanged | EventCallback<int> | - | Event callback when page changes |
+| TotalPages | int | 1 | Total number of pages |
+| MaxVisiblePages | int | 5 | Maximum visible page buttons |
+| Size | string | "md" | Pagination size: "sm", "md", or "lg" |
+
+### Usage
+
+```razor
+<BarkPagination @bind-CurrentPage="currentPage" TotalPages="10" />
+```
+
+---
+
+## BarkTabs
+
+Tab navigation component for switching between content views.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Tab items |
+| Variant | string | "default" | Tab style: "default" or "enclosed" |
+| Size | string | "md" | Tab size: "sm", "md", or "lg" |
+| ActiveTabId | string? | null | ID of active tab |
+| ActiveTabIdChanged | EventCallback<string> | - | Event callback when tab changes |
+
+### Usage
+
+```razor
+<CascadingValue Value="tabs">
+    <BarkTabs @bind-ActiveTabId="activeTab">
+        <BarkTab Id="tab1" Title="First Tab">
+            <p>First tab content</p>
+        </BarkTab>
+        <BarkTab Id="tab2" Title="Second Tab">
+            <p>Second tab content</p>
+        </BarkTab>
+    </BarkTabs>
+</CascadingValue>
+```
+
+---
+
+## BarkTab
+
+Individual tab item for BarkTabs component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| Id | string? | null | Unique identifier for the tab |
+| Title | string? | null | Tab label text |
+| ChildContent | RenderFragment? | null | Tab content |
+
+---
+
+## BarkDialog
+
+Modal dialog component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Dialog content |
+| FooterContent | RenderFragment? | null | Optional footer content |
+| Title | string? | null | Dialog title |
+| IsOpen | bool | false | Whether dialog is visible |
+| IsOpenChanged | EventCallback<bool> | - | Event callback when state changes |
+| Size | string | "md" | Dialog size: "sm", "md", "lg", or "xl" |
+| Dismissible | bool | true | Show close button |
+| CloseOnOverlayClick | bool | true | Close when clicking outside |
+
+### Usage
+
+```razor
+<BarkDialog @bind-IsOpen="dialogOpen" Title="Confirmation">
+    <p>Are you sure you want to proceed?</p>
+</BarkDialog>
+```
+
+---
+
+## BarkDrawer
+
+Slide-out drawer/sidebar component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Drawer content |
+| FooterContent | RenderFragment? | null | Optional footer content |
+| Title | string? | null | Drawer title |
+| IsOpen | bool | false | Whether drawer is visible |
+| IsOpenChanged | EventCallback<bool> | - | Event callback when state changes |
+| Placement | string | "right" | Drawer position: "right", "left", "top", or "bottom" |
+| Size | string | "md" | Drawer size: "sm", "md", or "lg" |
+| Dismissible | bool | true | Show close button |
+| CloseOnOverlayClick | bool | true | Close when clicking outside |
+
+### Usage
+
+```razor
+<BarkDrawer @bind-IsOpen="drawerOpen" Title="Menu" Placement="right">
+    <ul>
+        <li>Menu Item 1</li>
+        <li>Menu Item 2</li>
+    </ul>
+</BarkDrawer>
+```
+
+---
+
+## BarkHoverCard
+
+Card that appears when hovering over trigger element.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| TriggerContent | RenderFragment? | null | Element that triggers the hover card |
+| ChildContent | RenderFragment? | null | Hover card content |
+| Placement | string | "top" | Card position: "top", "bottom", "left", or "right" |
+| DelayMs | int | 200 | Delay before showing card (milliseconds) |
+
+### Usage
+
+```razor
+<BarkHoverCard Placement="top">
+    <TriggerContent>
+        <span>Hover me</span>
+    </TriggerContent>
+    <ChildContent>
+        <p>Additional information</p>
+    </ChildContent>
+</BarkHoverCard>
+```
+
+---
+
+## BarkMenu
+
+Dropdown menu component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| TriggerContent | RenderFragment? | null | Element that triggers the menu |
+| ChildContent | RenderFragment? | null | Menu items |
+| Placement | string | "bottom-start" | Menu position |
+| IsOpen | bool | false | Whether menu is visible |
+| IsOpenChanged | EventCallback<bool> | - | Event callback when state changes |
+
+### Usage
+
+```razor
+<CascadingValue Value="menu">
+    <BarkMenu @bind-IsOpen="menuOpen">
+        <TriggerContent>
+            <BarkButton>Menu</BarkButton>
+        </TriggerContent>
+        <ChildContent>
+            <BarkMenuItem OnClick="HandleAction">Item 1</BarkMenuItem>
+            <BarkMenuItem OnClick="HandleAction">Item 2</BarkMenuItem>
+        </ChildContent>
+    </BarkMenu>
+</CascadingValue>
+```
+
+---
+
+## BarkMenuItem
+
+Individual menu item for BarkMenu component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| ChildContent | RenderFragment? | null | Menu item content |
+| OnClick | EventCallback | - | Event callback when clicked |
+
+---
+
+## BarkPopover
+
+Popover component with title and dismissible option.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| TriggerContent | RenderFragment? | null | Element that triggers the popover |
+| ChildContent | RenderFragment? | null | Popover content |
+| Title | string? | null | Popover title |
+| Placement | string | "top" | Popover position: "top", "bottom", "left", or "right" |
+| IsOpen | bool | false | Whether popover is visible |
+| IsOpenChanged | EventCallback<bool> | - | Event callback when state changes |
+| Dismissible | bool | true | Show close button |
+
+### Usage
+
+```razor
+<BarkPopover Title="Help" Placement="top">
+    <TriggerContent>
+        <BarkButton>Help</BarkButton>
+    </TriggerContent>
+    <ChildContent>
+        <p>Helpful information here</p>
+    </ChildContent>
+</BarkPopover>
+```
+
+---
+
+## BarkTooltip
+
+Simple tooltip component.
+
+### Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| TriggerContent | RenderFragment? | null | Element that triggers the tooltip |
+| Content | string? | null | Tooltip text |
+| Placement | string | "top" | Tooltip position: "top", "bottom", "left", or "right" |
+| DelayMs | int | 200 | Delay before showing tooltip (milliseconds) |
+
+### Usage
+
+```razor
+<BarkTooltip Content="Click to save" Placement="top">
+    <TriggerContent>
+        <BarkButton>Save</BarkButton>
+    </TriggerContent>
+</BarkTooltip>
+```
+
+---

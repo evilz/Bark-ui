@@ -1,0 +1,45 @@
+@namespace BarkUI.Components
+
+<div class="@GetClasses()" @attributes="AdditionalAttributes">
+    @ChildContent
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string MaxHeight { get; set; } = "400px";
+
+    [Parameter]
+    public string ScrollDirection { get; set; } = "vertical";
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private string GetClasses()
+    {
+        var classes = new List<string> { "bark-scroll-area" };
+        classes.Add($"bark-scroll-area--{ScrollDirection}");
+
+        if (AdditionalAttributes?.ContainsKey("class") == true)
+        {
+            classes.Add(AdditionalAttributes["class"].ToString() ?? string.Empty);
+        }
+
+        return string.Join(" ", classes);
+    }
+
+    protected override void OnParametersSet()
+    {
+        if (AdditionalAttributes == null)
+        {
+            AdditionalAttributes = new Dictionary<string, object>();
+        }
+
+        if (!AdditionalAttributes.ContainsKey("style"))
+        {
+            AdditionalAttributes["style"] = $"max-height: {MaxHeight};";
+        }
+    }
+}

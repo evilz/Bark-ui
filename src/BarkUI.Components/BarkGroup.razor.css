@@ -1,0 +1,39 @@
+.bark-group {
+    display: flex;
+}
+
+.bark-group--horizontal {
+    flex-direction: row;
+}
+
+.bark-group--vertical {
+    flex-direction: column;
+}
+
+.bark-group--gap-sm {
+    gap: 0.5rem;
+}
+
+.bark-group--gap-md {
+    gap: 1rem;
+}
+
+.bark-group--gap-lg {
+    gap: 1.5rem;
+}
+
+.bark-group--align-start {
+    align-items: flex-start;
+}
+
+.bark-group--align-center {
+    align-items: center;
+}
+
+.bark-group--align-end {
+    align-items: flex-end;
+}
+
+.bark-group--wrap {
+    flex-wrap: wrap;
+}

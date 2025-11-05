@@ -1,0 +1,177 @@
+@page "/layout"
+
+<PageTitle>Layout - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; color: #111827;">Layout Components</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Components for organizing and positioning content
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Absolute Center Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Absolute Center</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Both Axes</h3>
+                            <div style="position: relative; height: 200px; background-color: var(--bg-subtle); border-radius: 0.5rem;">
+                                <BarkAbsoluteCenter Axis="both">
+                                    <BarkBadge ColorScheme="primary">Centered</BarkBadge>
+                                </BarkAbsoluteCenter>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Horizontal Only</h3>
+                            <div style="position: relative; height: 150px; background-color: var(--bg-subtle); border-radius: 0.5rem;">
+                                <BarkAbsoluteCenter Axis="horizontal">
+                                    <BarkBadge ColorScheme="success">Horizontally Centered</BarkBadge>
+                                </BarkAbsoluteCenter>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Vertical Only</h3>
+                            <div style="position: relative; height: 150px; background-color: var(--bg-subtle); border-radius: 0.5rem;">
+                                <BarkAbsoluteCenter Axis="vertical">
+                                    <BarkBadge ColorScheme="info">Vertically Centered</BarkBadge>
+                                </BarkAbsoluteCenter>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Group Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Group</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Horizontal Group</h3>
+                            <BarkGroup Orientation="horizontal" Gap="md">
+                                <BarkButton>Button 1</BarkButton>
+                                <BarkButton>Button 2</BarkButton>
+                                <BarkButton>Button 3</BarkButton>
+                            </BarkGroup>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Vertical Group</h3>
+                            <BarkGroup Orientation="vertical" Gap="sm">
+                                <BarkButton>Button 1</BarkButton>
+                                <BarkButton>Button 2</BarkButton>
+                                <BarkButton>Button 3</BarkButton>
+                            </BarkGroup>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Wrapped Group with Different Gaps</h3>
+                            <BarkGroup Orientation="horizontal" Gap="lg" Wrap="true">
+                                <BarkBadge>Tag 1</BarkBadge>
+                                <BarkBadge>Tag 2</BarkBadge>
+                                <BarkBadge>Tag 3</BarkBadge>
+                                <BarkBadge>Tag 4</BarkBadge>
+                                <BarkBadge>Tag 5</BarkBadge>
+                                <BarkBadge>Tag 6</BarkBadge>
+                                <BarkBadge>Tag 7</BarkBadge>
+                                <BarkBadge>Tag 8</BarkBadge>
+                            </BarkGroup>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Scroll Area Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Scroll Area</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Vertical Scroll</h3>
+                            <BarkScrollArea MaxHeight="200px" ScrollDirection="vertical">
+                                @foreach (var i in Enumerable.Range(1, 20))
+                                {
+                                    <p style="margin: 0.5rem 0;">Item @i - This is scrollable content in a vertical scroll area.</p>
+                                }
+                            </BarkScrollArea>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Horizontal Scroll</h3>
+                            <BarkScrollArea MaxHeight="100px" ScrollDirection="horizontal">
+                                <div style="display: flex; gap: 1rem; width: 150%;">
+                                    @foreach (var i in Enumerable.Range(1, 10))
+                                    {
+                                        <BarkCard style="min-width: 200px;">
+                                            <h4>Card @i</h4>
+                                            <p>Horizontal content</p>
+                                        </BarkCard>
+                                    }
+                                </div>
+                            </BarkScrollArea>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Splitter Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Splitter</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Horizontal Split</h3>
+                            <div style="height: 300px; border: 1px solid var(--border-default); border-radius: 0.5rem; overflow: hidden;">
+                                <BarkSplitter Orientation="horizontal" DefaultSize="50">
+                                    <FirstPane>
+                                        <div style="background-color: var(--bg-subtle); height: 100%;">
+                                            <h4>Left Pane</h4>
+                                            <p>This is the first pane of the splitter.</p>
+                                        </div>
+                                    </FirstPane>
+                                    <SecondPane>
+                                        <div style="background-color: var(--bg-muted); height: 100%;">
+                                            <h4>Right Pane</h4>
+                                            <p>This is the second pane of the splitter.</p>
+                                        </div>
+                                    </SecondPane>
+                                </BarkSplitter>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 1rem;">Vertical Split</h3>
+                            <div style="height: 300px; border: 1px solid var(--border-default); border-radius: 0.5rem; overflow: hidden;">
+                                <BarkSplitter Orientation="vertical" DefaultSize="40">
+                                    <FirstPane>
+                                        <div style="background-color: var(--bg-subtle); height: 100%;">
+                                            <h4>Top Pane</h4>
+                                            <p>This is the first pane of the splitter.</p>
+                                        </div>
+                                    </FirstPane>
+                                    <SecondPane>
+                                        <div style="background-color: var(--bg-muted); height: 100%;">
+                                            <h4>Bottom Pane</h4>
+                                            <p>This is the second pane of the splitter.</p>
+                                        </div>
+                                    </SecondPane>
+                                </BarkSplitter>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

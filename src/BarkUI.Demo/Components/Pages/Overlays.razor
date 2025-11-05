@@ -1,0 +1,258 @@
+@page "/overlays"
+
+<PageTitle>Overlays - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; color: #111827;">Overlay Components</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Components for dialogs, drawers, menus, and tooltips
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Dialog Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Dialog</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <BarkButton OnClick="@(() => dialogOpen = true)">Open Dialog</BarkButton>
+                        <BarkButton OnClick="@(() => dialogLarge = true)" Variant="outline">Large Dialog</BarkButton>
+                        <BarkButton OnClick="@(() => dialogWithFooter = true)" ColorScheme="success">Dialog with Footer</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <BarkDialog @bind-IsOpen="dialogOpen" Title="Confirmation Dialog" Size="md">
+                <p>This is a simple dialog. It can be dismissed by clicking the X button or clicking outside.</p>
+                <p style="margin-top: 1rem; color: var(--fg-muted);">Dialog content goes here. You can add any content you want.</p>
+            </BarkDialog>
+
+            <BarkDialog @bind-IsOpen="dialogLarge" Title="Large Dialog" Size="lg">
+                <h3 style="margin-bottom: 0.5rem;">Large Dialog Content</h3>
+                <p>This dialog is larger and can hold more content.</p>
+                @foreach (var i in Enumerable.Range(1, 10))
+                {
+                    <p style="margin-top: 0.5rem;">Paragraph @i with some content to demonstrate scrolling in large dialogs.</p>
+                }
+            </BarkDialog>
+
+            <BarkDialog @bind-IsOpen="dialogWithFooter" Title="Dialog with Footer" Size="md">
+                <ChildContent>
+                    <p>This dialog has a footer with action buttons.</p>
+                    <p style="margin-top: 1rem;">Do you want to proceed with this action?</p>
+                </ChildContent>
+                <FooterContent>
+                    <BarkButton Variant="outline" OnClick="@(() => dialogWithFooter = false)">Cancel</BarkButton>
+                    <BarkButton ColorScheme="success" OnClick="@(() => dialogWithFooter = false)">Confirm</BarkButton>
+                </FooterContent>
+            </BarkDialog>
+
+            <!-- Drawer Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Drawer</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                        <BarkButton OnClick="@(() => drawerRight = true)">Right Drawer</BarkButton>
+                        <BarkButton OnClick="@(() => drawerLeft = true)" Variant="outline">Left Drawer</BarkButton>
+                        <BarkButton OnClick="@(() => drawerTop = true)" ColorScheme="secondary">Top Drawer</BarkButton>
+                        <BarkButton OnClick="@(() => drawerBottom = true)" ColorScheme="secondary">Bottom Drawer</BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <BarkDrawer @bind-IsOpen="drawerRight" Title="Right Drawer" Placement="right" Size="md">
+                <h3>Drawer Content</h3>
+                <p>This is a drawer that slides in from the right side.</p>
+                <p style="margin-top: 1rem;">You can put any content here, like navigation links, settings, or forms.</p>
+            </BarkDrawer>
+
+            <BarkDrawer @bind-IsOpen="drawerLeft" Title="Left Drawer" Placement="left" Size="md">
+                <h3>Navigation Menu</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 1rem;">
+                    <li style="padding: 0.5rem 0;"><a href="#" style="color: var(--color-palette-default);">Dashboard</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="#" style="color: var(--color-palette-default);">Projects</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="#" style="color: var(--color-palette-default);">Settings</a></li>
+                    <li style="padding: 0.5rem 0;"><a href="#" style="color: var(--color-palette-default);">Help</a></li>
+                </ul>
+            </BarkDrawer>
+
+            <BarkDrawer @bind-IsOpen="drawerTop" Title="Top Drawer" Placement="top" Size="sm">
+                <h3>Notification Panel</h3>
+                <p style="margin-top: 1rem;">This drawer slides from the top.</p>
+            </BarkDrawer>
+
+            <BarkDrawer @bind-IsOpen="drawerBottom" Title="Bottom Drawer" Placement="bottom" Size="md">
+                <h3>Bottom Sheet</h3>
+                <p style="margin-top: 1rem;">This drawer slides from the bottom, useful for mobile-style bottom sheets.</p>
+            </BarkDrawer>
+
+            <!-- Hover Card Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Hover Card</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                        <BarkHoverCard Placement="top">
+                            <TriggerContent>
+                                <BarkBadge>Hover me (top)</BarkBadge>
+                            </TriggerContent>
+                            <ChildContent>
+                                <h4 style="margin-bottom: 0.5rem;">User Information</h4>
+                                <p style="margin: 0;">This is a hover card that appears on top.</p>
+                            </ChildContent>
+                        </BarkHoverCard>
+
+                        <BarkHoverCard Placement="bottom">
+                            <TriggerContent>
+                                <BarkBadge ColorScheme="success">Hover me (bottom)</BarkBadge>
+                            </TriggerContent>
+                            <ChildContent>
+                                <h4 style="margin-bottom: 0.5rem;">Product Details</h4>
+                                <p style="margin: 0;">This hover card appears below the element.</p>
+                            </ChildContent>
+                        </BarkHoverCard>
+
+                        <BarkHoverCard Placement="right">
+                            <TriggerContent>
+                                <BarkBadge ColorScheme="info">Hover me (right)</BarkBadge>
+                            </TriggerContent>
+                            <ChildContent>
+                                <h4 style="margin-bottom: 0.5rem;">Additional Info</h4>
+                                <p style="margin: 0;">This card appears to the right.</p>
+                            </ChildContent>
+                        </BarkHoverCard>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Menu Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Menu</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <CascadingValue Value="menu1">
+                            <BarkMenu @bind-IsOpen="menuOpen1" Placement="bottom-start">
+                                <TriggerContent>
+                                    <BarkButton>Open Menu</BarkButton>
+                                </TriggerContent>
+                                <ChildContent>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Profile"))">Profile</BarkMenuItem>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Settings"))">Settings</BarkMenuItem>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Logout"))">Logout</BarkMenuItem>
+                                </ChildContent>
+                            </BarkMenu>
+                        </CascadingValue>
+
+                        <CascadingValue Value="menu2">
+                            <BarkMenu @bind-IsOpen="menuOpen2" Placement="bottom-end">
+                                <TriggerContent>
+                                    <BarkButton Variant="outline">Actions ▼</BarkButton>
+                                </TriggerContent>
+                                <ChildContent>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Edit"))">✏️ Edit</BarkMenuItem>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Duplicate"))">📋 Duplicate</BarkMenuItem>
+                                    <BarkMenuItem OnClick="@(() => HandleMenuAction("Delete"))">🗑️ Delete</BarkMenuItem>
+                                </ChildContent>
+                            </BarkMenu>
+                        </CascadingValue>
+                    </div>
+                    @if (!string.IsNullOrEmpty(lastAction))
+                    {
+                        <p style="margin-top: 1rem; color: var(--fg-muted); font-size: 0.875rem;">Last action: @lastAction</p>
+                    }
+                </BarkCard>
+            </section>
+
+            <!-- Popover Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Popover</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                        <BarkPopover Title="Help" Placement="top">
+                            <TriggerContent>
+                                <BarkButton Variant="outline" Size="sm">Help ?</BarkButton>
+                            </TriggerContent>
+                            <ChildContent>
+                                <p>This is helpful information in a popover.</p>
+                                <p style="margin-top: 0.5rem;">Click the X or outside to close.</p>
+                            </ChildContent>
+                        </BarkPopover>
+
+                        <BarkPopover Title="Quick Actions" Placement="bottom">
+                            <TriggerContent>
+                                <BarkButton ColorScheme="primary">Show Actions</BarkButton>
+                            </TriggerContent>
+                            <ChildContent>
+                                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                    <BarkButton Size="sm" Variant="ghost">Action 1</BarkButton>
+                                    <BarkButton Size="sm" Variant="ghost">Action 2</BarkButton>
+                                    <BarkButton Size="sm" Variant="ghost">Action 3</BarkButton>
+                                </div>
+                            </ChildContent>
+                        </BarkPopover>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Tooltip Section -->
+            <section>
+                <h2 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1.5rem; color: #111827;">Tooltip</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                        <BarkTooltip Content="This is a tooltip on top" Placement="top">
+                            <TriggerContent>
+                                <BarkButton>Top Tooltip</BarkButton>
+                            </TriggerContent>
+                        </BarkTooltip>
+
+                        <BarkTooltip Content="This tooltip appears at the bottom" Placement="bottom">
+                            <TriggerContent>
+                                <BarkButton Variant="outline">Bottom Tooltip</BarkButton>
+                            </TriggerContent>
+                        </BarkTooltip>
+
+                        <BarkTooltip Content="Left side tooltip" Placement="left">
+                            <TriggerContent>
+                                <BarkButton ColorScheme="success">Left Tooltip</BarkButton>
+                            </TriggerContent>
+                        </BarkTooltip>
+
+                        <BarkTooltip Content="Right side tooltip" Placement="right">
+                            <TriggerContent>
+                                <BarkButton ColorScheme="secondary">Right Tooltip</BarkButton>
+                            </TriggerContent>
+                        </BarkTooltip>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+    // Dialog state
+    private bool dialogOpen = false;
+    private bool dialogLarge = false;
+    private bool dialogWithFooter = false;
+
+    // Drawer state
+    private bool drawerRight = false;
+    private bool drawerLeft = false;
+    private bool drawerTop = false;
+    private bool drawerBottom = false;
+
+    // Menu state
+    private BarkMenu? menu1;
+    private BarkMenu? menu2;
+    private bool menuOpen1 = false;
+    private bool menuOpen2 = false;
+    private string lastAction = string.Empty;
+
+    private void HandleMenuAction(string action)
+    {
+        lastAction = action;
+    }
+}

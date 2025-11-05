@@ -1,0 +1,19 @@
+.bark-absolute-center {
+    position: absolute;
+}
+
+.bark-absolute-center--both {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bark-absolute-center--horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bark-absolute-center--vertical {
+    top: 50%;
+    transform: translateY(-50%);
+}
