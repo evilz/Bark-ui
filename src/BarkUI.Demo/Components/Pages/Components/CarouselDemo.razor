@@ -1,0 +1,47 @@
+@page "/components/carousel"
+
+<PageTitle>Carousel - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Carousel</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Slideshow component for cycling through content.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Example Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Example</h2>
+                <BarkCarousel @bind-CurrentIndex="@carouselIndex" ItemCount="3">
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">First Slide</h3>
+                            <p style="color: #6b7280;">This is the first carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Second Slide</h3>
+                            <p style="color: #6b7280;">This is the second carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                    <BarkCarouselItem>
+                        <div style="padding: 4rem; text-align: center;">
+                            <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 0.5rem;">Third Slide</h3>
+                            <p style="color: #6b7280;">This is the third carousel item</p>
+                        </div>
+                    </BarkCarouselItem>
+                </BarkCarousel>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+    private int carouselIndex = 0;
+}

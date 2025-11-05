@@ -1,0 +1,63 @@
+@page "/components/card"
+
+<PageTitle>Card - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Card</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                A container component with different elevation and styling options.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Variants Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Variants</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <BarkCard Variant="elevated">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Elevated Card</h3>
+                        <p style="color: #6b7280;">A card with shadow elevation effect.</p>
+                    </BarkCard>
+                    
+                    <BarkCard Variant="outlined">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Outlined Card</h3>
+                        <p style="color: #6b7280;">A card with border outline.</p>
+                    </BarkCard>
+                    
+                    <BarkCard Variant="flat">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Flat Card</h3>
+                        <p style="color: #6b7280;">A simple flat card with background.</p>
+                    </BarkCard>
+                </div>
+            </section>
+
+            <!-- Padding Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Padding Sizes</h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <BarkCard Padding="sm">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Small Padding</h3>
+                        <p style="color: #6b7280;">Card with small padding.</p>
+                    </BarkCard>
+                    
+                    <BarkCard Padding="md">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Medium Padding</h3>
+                        <p style="color: #6b7280;">Card with medium padding (default).</p>
+                    </BarkCard>
+                    
+                    <BarkCard Padding="lg">
+                        <h3 style="font-weight: 600; margin-bottom: 0.5rem;">Large Padding</h3>
+                        <p style="color: #6b7280;">Card with large padding.</p>
+                    </BarkCard>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

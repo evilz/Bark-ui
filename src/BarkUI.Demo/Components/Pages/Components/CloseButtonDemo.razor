@@ -1,0 +1,75 @@
+@page "/components/close-button"
+
+<PageTitle>Close Button - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Close Button</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                A close button component for dismissing dialogs, modals, and alerts.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Examples Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Examples</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                        <BarkButton Variant="ghost" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem;">
+                            ✕
+                        </BarkButton>
+                        <BarkButton Variant="ghost" Size="md" style="padding: 0.5rem; width: 2.5rem; height: 2.5rem;">
+                            ✕
+                        </BarkButton>
+                        <BarkButton Variant="outline" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem; border-radius: 50%;">
+                            ✕
+                        </BarkButton>
+                        <BarkButton ColorScheme="danger" Variant="ghost" Size="sm" style="padding: 0.25rem; width: 2rem; height: 2rem;">
+                            ✕
+                        </BarkButton>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Variants Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Variants</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Ghost</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton Variant="ghost" Size="sm" style="padding: 0.5rem;">✕</BarkButton>
+                                <BarkButton Variant="ghost" Size="md" style="padding: 0.5rem;">✕</BarkButton>
+                                <BarkButton Variant="ghost" Size="lg" style="padding: 0.5rem;">✕</BarkButton>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Outline</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton Variant="outline" Size="sm" style="padding: 0.5rem;">✕</BarkButton>
+                                <BarkButton Variant="outline" Size="md" style="padding: 0.5rem;">✕</BarkButton>
+                                <BarkButton Variant="outline" Size="lg" style="padding: 0.5rem;">✕</BarkButton>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: 0.75rem; font-size: 1rem;">Circular</h3>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center;">
+                                <BarkButton Variant="ghost" Size="sm" style="padding: 0.5rem; border-radius: 50%;">✕</BarkButton>
+                                <BarkButton Variant="outline" Size="md" style="padding: 0.5rem; border-radius: 50%;">✕</BarkButton>
+                                <BarkButton ColorScheme="danger" Variant="ghost" Size="lg" style="padding: 0.5rem; border-radius: 50%;">✕</BarkButton>
+                            </div>
+                        </div>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

@@ -1,0 +1,61 @@
+@page "/components/checkbox"
+
+<PageTitle>Checkbox - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Checkbox</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                A checkbox input component with customizable sizes.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Examples Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Examples</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <BarkCheckbox @bind-Checked="checkbox1">Accept terms and conditions</BarkCheckbox>
+                        <BarkCheckbox @bind-Checked="checkbox2">Subscribe to newsletter</BarkCheckbox>
+                        <BarkCheckbox @bind-Checked="checkbox3">Enable notifications</BarkCheckbox>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Sizes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Sizes</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <BarkCheckbox Size="sm">Small checkbox</BarkCheckbox>
+                        <BarkCheckbox Size="md">Medium checkbox</BarkCheckbox>
+                        <BarkCheckbox Size="lg">Large checkbox</BarkCheckbox>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- States Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">States</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <BarkCheckbox Checked="true">Checked</BarkCheckbox>
+                        <BarkCheckbox Checked="false">Unchecked</BarkCheckbox>
+                        <BarkCheckbox Checked="true" Disabled="true">Disabled checked</BarkCheckbox>
+                        <BarkCheckbox Checked="false" Disabled="true">Disabled unchecked</BarkCheckbox>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+    private bool checkbox1 = false;
+    private bool checkbox2 = false;
+    private bool checkbox3 = false;
+}

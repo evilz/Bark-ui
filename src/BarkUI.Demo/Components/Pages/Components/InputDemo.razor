@@ -1,0 +1,56 @@
+@page "/components/input"
+
+<PageTitle>Input - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Input</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Text input component with labels, validation, and helper text.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Examples Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Examples</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkInput Label="Email" Placeholder="Enter your email" Type="email" />
+                        <BarkInput Label="Password" Placeholder="Enter your password" Type="password" />
+                        <BarkInput Label="Username" Placeholder="Enter your username" HelperText="Username must be unique" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Sizes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Sizes</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkInput Label="Small" Size="sm" Placeholder="Small input" />
+                        <BarkInput Label="Medium" Size="md" Placeholder="Medium input" />
+                        <BarkInput Label="Large" Size="lg" Placeholder="Large input" />
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- States Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">States</h2>
+                <BarkCard>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <BarkInput Label="Disabled Input" Placeholder="This is disabled" Disabled="true" />
+                        <BarkInput Label="Input with Error" Placeholder="Invalid input" HasError="true" HelperText="This field is required" />
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

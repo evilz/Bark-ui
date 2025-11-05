@@ -1,0 +1,50 @@
+@page "/components/icon"
+
+<PageTitle>Icon - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; color: #111827;">Icon</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                Flexible icon wrapper component.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Sizes Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Sizes</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <BarkIcon Size="xs" AriaLabel="Extra small icon">🌟</BarkIcon>
+                        <BarkIcon Size="sm" AriaLabel="Small icon">🌟</BarkIcon>
+                        <BarkIcon Size="md" AriaLabel="Medium icon">🌟</BarkIcon>
+                        <BarkIcon Size="lg" AriaLabel="Large icon">🌟</BarkIcon>
+                        <BarkIcon Size="xl" AriaLabel="Extra large icon">🌟</BarkIcon>
+                    </div>
+                </BarkCard>
+            </section>
+
+            <!-- Various Icons Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Various Icons</h2>
+                <BarkCard>
+                    <div style="display: flex; gap: 1rem; align-items: center; font-size: 1.5rem;">
+                        <BarkIcon AriaLabel="Home">🏠</BarkIcon>
+                        <BarkIcon AriaLabel="Settings">⚙️</BarkIcon>
+                        <BarkIcon AriaLabel="User">👤</BarkIcon>
+                        <BarkIcon AriaLabel="Search">🔍</BarkIcon>
+                        <BarkIcon AriaLabel="Heart">❤️</BarkIcon>
+                        <BarkIcon AriaLabel="Star">⭐</BarkIcon>
+                    </div>
+                </BarkCard>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+}

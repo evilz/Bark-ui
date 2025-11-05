@@ -89,6 +89,19 @@
     display: block;
 }
 
+.nav-section {
+    margin-top: 1rem;
+}
+
+.nav-section-header {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+}
+
 @media (min-width: 641px) {
     .navbar-toggler {
         display: none;

@@ -1,0 +1,44 @@
+@page "/components/accordion"
+
+<PageTitle>Accordion - Bark UI</PageTitle>
+
+<BarkContainer MaxWidth="xl">
+    <div style="padding: 2rem 0;">
+        <div style="margin-bottom: 3rem;">
+            <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #111827;">Accordion</h1>
+            <p style="font-size: 1.125rem; color: #6b7280;">
+                An expandable accordion component for organizing content sections.
+            </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
+
+            <!-- Basic Example Section -->
+            <section>
+                <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #111827;">Basic Example</h2>
+                <BarkAccordion>
+                    <BarkAccordionItem Title="What is Bark UI?" @bind-IsExpanded="@accordion1">
+                        Bark UI is a comprehensive .NET Blazor component library inspired by park-ui, 
+                        providing beautifully designed, accessible components with Radix UI colors.
+                    </BarkAccordionItem>
+                    <BarkAccordionItem Title="How do I install it?" @bind-IsExpanded="@accordion2">
+                        You can add Bark UI to your project by referencing the BarkUI.Components project 
+                        and including the namespace in your _Imports.razor file.
+                    </BarkAccordionItem>
+                    <BarkAccordionItem Title="Is it customizable?" @bind-IsExpanded="@accordion3">
+                        Yes! All components support custom CSS classes and can be themed using the 
+                        built-in theming system with Radix UI colors.
+                    </BarkAccordionItem>
+                </BarkAccordion>
+            </section>
+
+        </div>
+    </div>
+</BarkContainer>
+
+@code {
+
+    private bool accordion1 = false;
+    private bool accordion2 = false;
+    private bool accordion3 = false;
+}
